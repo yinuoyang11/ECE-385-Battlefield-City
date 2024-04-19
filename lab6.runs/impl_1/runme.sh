@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='E:/xilinx/lab6/lab6.runs/impl_1'
+HD_PWD='E:/xilinx/final_project/lab6.runs/impl_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

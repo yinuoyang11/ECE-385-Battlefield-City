@@ -17,7 +17,7 @@ proc create_report { reportName command } {
   }
 }
 namespace eval ::optrace {
-  variable script "E:/xilinx/lab6/lab6.runs/impl_1/mb_usb_hdmi_top.tcl"
+  variable script "E:/xilinx/final_project/lab6.runs/impl_1/mb_usb_hdmi_top.tcl"
   variable category "vivado_impl"
 }
 
@@ -115,7 +115,6 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
-set_msg_config -id {HDL-1065} -limit 10000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -130,24 +129,26 @@ OPTRACE "create in-memory project" START { }
   set_param project.singleFileAddWarning.threshold 0
 OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
-  set_property webtalk.parent_dir E:/xilinx/lab6/lab6.cache/wt [current_project]
-  set_property parent.project_path E:/xilinx/lab6/lab6.xpr [current_project]
+  set_property webtalk.parent_dir E:/xilinx/final_project/lab6.cache/wt [current_project]
+  set_property parent.project_path E:/xilinx/final_project/lab6.xpr [current_project]
   set_property ip_repo_paths {
   f:/hdmi_tx_1.0
   E:/xilinx/ip_repo/hdmi_text_controller_1_0
 } [current_project]
   update_ip_catalog
-  set_property ip_output_repo E:/xilinx/lab6/lab6.cache/ip [current_project]
+  set_property ip_output_repo E:/xilinx/final_project/lab6.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 OPTRACE "set parameters" END { }
 OPTRACE "add files" START { }
-  add_files -quiet E:/xilinx/lab6/lab6.runs/synth_1/mb_usb_hdmi_top.dcp
+  add_files -quiet E:/xilinx/final_project/lab6.runs/synth_1/mb_usb_hdmi_top.dcp
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
-  add_files E:/xilinx/lab6/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
-  read_ip -quiet E:/xilinx/lab6/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-  read_ip -quiet E:/xilinx/lab6/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+  add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc

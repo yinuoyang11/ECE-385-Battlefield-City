@@ -4,7 +4,7 @@
 
 set TIME_start [clock seconds] 
 namespace eval ::optrace {
-  variable script "E:/xilinx/lab6/lab6.runs/synth_1/mb_usb_hdmi_top.tcl"
+  variable script "E:/xilinx/final_project/lab6.runs/synth_1/mb_usb_hdmi_top.tcl"
   variable category "vivado_synth"
 }
 
@@ -71,7 +71,6 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
-set_msg_config -id {HDL-1065} -limit 10000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -79,8 +78,8 @@ set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
 set_msg_config -source 4 -id {IP_Flow 19-2162} -severity warning -new_severity info
-set_property webtalk.parent_dir E:/xilinx/lab6/lab6.cache/wt [current_project]
-set_property parent.project_path E:/xilinx/lab6/lab6.xpr [current_project]
+set_property webtalk.parent_dir E:/xilinx/final_project/lab6.cache/wt [current_project]
+set_property parent.project_path E:/xilinx/final_project/lab6.xpr [current_project]
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
@@ -89,66 +88,77 @@ set_property ip_repo_paths {
   e:/xilinx/ip_repo/hdmi_text_controller_1_0
 } [current_project]
 update_ip_catalog
-set_property ip_output_repo e:/xilinx/lab6/lab6.cache/ip [current_project]
+set_property ip_output_repo e:/xilinx/final_project/lab6.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
+add_files e:/xilinx/red_brick/red_brick.COE
+add_files e:/xilinx/tank3/tank3.COE
 read_verilog -library xil_defaultlib -sv {
-  F:/新建文件夹/Color_Mapper.sv
   F:/新建文件夹/VGA_controller.sv
   F:/新建文件夹/ball.sv
-  E:/xilinx/lab6/lab6.srcs/sources_1/imports/lab7_1_provided_sp24/font_rom.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv
   F:/新建文件夹/hex_driver.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_palette.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_palette.sv
   F:/新建文件夹/mb_usb_hdmi_top.sv
 }
-add_files E:/xilinx/lab6/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0_ooc_debug.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_v10_0/mb_block_dlmb_v10_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_v10_0/mb_block_ilmb_v10_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_bram_if_cntlr_0/mb_block_dlmb_bram_if_cntlr_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_bram_if_cntlr_0/mb_block_ilmb_bram_if_cntlr_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_lmb_bram_0/mb_block_lmb_bram_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_xbar_0/mb_block_xbar_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0_ooc_trace.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_clocks.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/data/mb_bootloop_le.elf]
+add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0_ooc_debug.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_v10_0/mb_block_dlmb_v10_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_v10_0/mb_block_ilmb_v10_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_dlmb_bram_if_cntlr_0/mb_block_dlmb_bram_if_cntlr_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_ilmb_bram_if_cntlr_0/mb_block_ilmb_bram_if_cntlr_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_lmb_bram_0/mb_block_lmb_bram_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_xbar_0/mb_block_xbar_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_axi_intc_0/mb_block_microblaze_0_axi_intc_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_mdm_1_0/mb_block_mdm_1_0_ooc_trace.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_clk_wiz_1_0/mb_block_clk_wiz_1_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_rst_clk_wiz_1_100M_0/mb_block_rst_clk_wiz_1_100M_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_uartlite_0_0/mb_block_axi_uartlite_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_0/mb_block_axi_gpio_3_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_1/mb_block_axi_gpio_3_1.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_gpio_3_2/mb_block_axi_gpio_3_2.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_timer_0_0/mb_block_axi_timer_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_axi_quad_spi_0_0/mb_block_axi_quad_spi_0_0_clocks.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/data/mb_bootloop_le.elf]
 
-read_ip -quiet E:/xilinx/lab6/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
-set_property used_in_implementation false [get_files -all e:/xilinx/lab6/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_ooc.xdc]
 
-read_ip -quiet E:/xilinx/lab6/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
@@ -166,7 +176,7 @@ read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 set_param ips.enableIPCacheLiteLoad 1
 
-read_checkpoint -auto_incremental -incremental E:/xilinx/lab6/lab6.srcs/utils_1/imports/synth_1/mb_intro_top.dcp
+read_checkpoint -auto_incremental -incremental E:/xilinx/final_project/lab6.srcs/utils_1/imports/synth_1/mb_intro_top.dcp
 close [open __synthesis_is_running__ w]
 
 OPTRACE "synth_design" START { }
