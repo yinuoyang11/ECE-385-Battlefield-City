@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
+set_msg_config -id {Common 17-41} -limit 10000000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -83,17 +84,14 @@ set_property parent.project_path E:/xilinx/final_project/lab6.xpr [current_proje
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths {
-  f:/hdmi_tx_1.0
-  e:/xilinx/ip_repo/hdmi_text_controller_1_0
-} [current_project]
+set_property ip_repo_paths f:/hdmi_tx_1.0 [current_project]
 update_ip_catalog
 set_property ip_output_repo e:/xilinx/final_project/lab6.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-add_files e:/xilinx/red_brick/red_brick.COE
-add_files e:/xilinx/tank3/tank3.COE
+add_files E:/xilinx/red_brick/red_brick.COE
+add_files E:/xilinx/tank3/tank3.COE
 read_verilog -library xil_defaultlib -sv {
   F:/新建文件夹/VGA_controller.sv
   F:/新建文件夹/ball.sv
@@ -102,9 +100,9 @@ read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_palette.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv
-  E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_palette.sv
   F:/新建文件夹/mb_usb_hdmi_top.sv
 }
+read_verilog -library xil_defaultlib E:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/hdl/mb_block_wrapper.v
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/mb_block_microblaze_0_0_ooc_debug.xdc]
@@ -147,6 +145,9 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/data/mb_bootloop_le.elf]
 
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0_ooc.xdc]
+
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
@@ -154,10 +155,10 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
 
-read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom_ooc.xdc]
 
-read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }

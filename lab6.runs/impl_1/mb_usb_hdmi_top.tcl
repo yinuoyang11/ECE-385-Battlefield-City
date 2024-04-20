@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 
 OPTRACE "impl_1" START { ROLLUP_1 }
 OPTRACE "Phase: Init Design" START { ROLLUP_AUTO }
@@ -131,10 +132,7 @@ OPTRACE "create in-memory project" END { }
 OPTRACE "set parameters" START { }
   set_property webtalk.parent_dir E:/xilinx/final_project/lab6.cache/wt [current_project]
   set_property parent.project_path E:/xilinx/final_project/lab6.xpr [current_project]
-  set_property ip_repo_paths {
-  f:/hdmi_tx_1.0
-  E:/xilinx/ip_repo/hdmi_text_controller_1_0
-} [current_project]
+  set_property ip_repo_paths f:/hdmi_tx_1.0 [current_project]
   update_ip_catalog
   set_property ip_output_repo E:/xilinx/final_project/lab6.cache/ip [current_project]
   set_property ip_cache_permissions {read write} [current_project]
@@ -145,10 +143,11 @@ OPTRACE "add files" START { }
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
   add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
-  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
-  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc

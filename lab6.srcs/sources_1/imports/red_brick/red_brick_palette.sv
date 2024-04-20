@@ -1,15 +1,25 @@
-module red_brick_palette (
-	input logic [1:0] index,
+module palette (
+	input logic [1:0] index,input logic [1:0] palette_idx,
 	output logic [3:0] red, green, blue
 );
 
-localparam [0:3][11:0] palette = {
+localparam [0:1][0:3][11:0] palette = {
+{
+// block palette
 	{4'hA, 4'h0, 4'h0},
 	{4'hF, 4'hE, 4'hE},
 	{4'hD, 4'h9, 4'h9},
 	{4'hB, 4'h3, 4'h3}
+},
+{
+// tank palette
+	{4'hF, 4'hC, 4'h1},
+	{4'h7, 4'h3, 4'h9},
+	{4'hF, 4'hE, 4'h9},
+	{4'hA, 4'h6, 4'h5}
+}
 };
 
-assign {red, green, blue} = palette[index];
+assign {red, green, blue} = palette[palette_idx][index];
 
 endmodule

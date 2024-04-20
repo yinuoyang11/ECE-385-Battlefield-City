@@ -1,12 +1,12 @@
 module tank3_example (
 	input logic vga_clk,
 	input logic [9:0] DrawX, DrawY, tankX, tankY,
-	output logic [3:0] red, green, blue,
+	output logic [1:0] rom_q,
 	output logic tank_on
 );
 
 logic [9:0] rom_address;
-logic [1:0] rom_q;
+logic [1:0] rom_q_;
 logic [3:0] palette_red, palette_green, palette_blue;
 logic tank_on_;
 logic negedge_vga_clk;
@@ -27,29 +27,29 @@ always_comb begin
     end
 end
 
-always_ff @ (posedge vga_clk) begin
-	red <= 4'h0;
-	green <= 4'h0;
-	blue <= 4'h0;
+//always_ff @ (posedge vga_clk) begin
+//	red <= 4'h0;
+//	green <= 4'h0;
+//	blue <= 4'h0;
 
-	if (tank_on_ && (rom_q != 1)) begin
-		red <= palette_red;
-		green <= palette_green;
-		blue <= palette_blue;
-	end
-end
+//	if (tank_on_ && (rom_q != 1)) begin
+//		red <= palette_red;
+//		green <= palette_green;
+//		blue <= palette_blue;
+//	end
+//end
 
 tank3_rom tank3_rom (
 	.clka   (negedge_vga_clk),
 	.addra (rom_address),
-	.douta       (rom_q)
+	.douta       (rom_q_)
 );
-
-tank3_palette tank3_palette (
-	.index (rom_q),
-	.red   (palette_red),
-	.green (palette_green),
-	.blue  (palette_blue)
-);
+assign rom_q = rom_q_;
+//tank3_palette tank3_palette (
+//	.index (rom_q),
+//	.red   (palette_red),
+//	.green (palette_green),
+//	.blue  (palette_blue)
+//);
 assign tank_on = tank_on_;
 endmodule
