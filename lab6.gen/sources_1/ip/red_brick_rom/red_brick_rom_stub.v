@@ -1,7 +1,7 @@
 // Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-// Date        : Thu Apr 18 17:05:02 2024
+// Date        : Sat Apr 20 22:27:00 2024
 // Host        : yinuo running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode synth_stub
 //               e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom_stub.v

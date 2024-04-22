@@ -63,7 +63,4 @@ set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mb_block_ax
 # IP: bd/mb_block/ip/mb_block_xlconcat_0_0/mb_block_xlconcat_0_0.xci
 set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==mb_block_xlconcat_0_0 || ORIG_REF_NAME==mb_block_xlconcat_0_0} -quiet] -quiet
 
-# IP: ip/frame_buffer_0/frame_buffer_0.xci
-set_property KEEP_HIERARCHY SOFT [get_cells -hier -filter {REF_NAME==frame_buffer_0 || ORIG_REF_NAME==frame_buffer_0} -quiet] -quiet
-
 # XDC: e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc

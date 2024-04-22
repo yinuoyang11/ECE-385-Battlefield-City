@@ -45,7 +45,7 @@ module mb_usb_hdmi_top(
     logic [31:0] keycode0_gpio, keycode1_gpio;
     logic clk_25MHz, clk_125MHz, clk, clk_100MHz;
     logic locked;
-    logic [9:0] drawX, drawY, ballxsig, ballysig, ballsizesig;
+    logic [9:0] drawX, drawY, tank1xsig, tank1ysig, tank2xsig, tank2ysig, ballsizesig;
 
     logic hsync, vsync, vde;
     logic [3:0] red, green, blue;
@@ -54,9 +54,10 @@ module mb_usb_hdmi_top(
     
   
     logic block_on;
-    logic tank_on;
+    logic tank_on, tank2_on;
     logic [1:0] block_rom;
     logic [1:0] tank_rom;
+    logic [1:0] tank2_rom;
     assign reset_ah = reset_rtl_0;
     
     
@@ -68,15 +69,22 @@ module mb_usb_hdmi_top(
     logic [7:0] read_data;
     logic [18:0] write_addr;
     logic [7:0] write_data;
+    logic [7:0] doutb;
     logic write_en;
     logic play_area;
     logic [1:0] color_idx;
     logic [1:0] palette_idx;
     always_ff @(posedge Clk or posedge reset_ah) begin
-        if ((counter == 19'b0111000001111111111) || (reset_ah == 1'b1)) begin
+        if (reset_ah == 1'b1) begin
+            write_addr <= counter;
             counter <= 0;
         end
-        else if((~vde) && (drawY<480) && (drawX<759)) begin
+        else if (counter == 19'b0111000001111111111) begin
+            write_addr <= counter;
+            counter <= 0;
+        end
+        else if((~vde) && (drawY<480) && (drawX<760)) begin
+            write_addr <= counter;
             counter <= counter + 1;
         end
         else begin
@@ -86,7 +94,6 @@ module mb_usb_hdmi_top(
     always_comb begin
         fb_x = counter % 480;
         fb_y = counter / 480;
-        write_addr = counter;
         if ((drawX >=0) && (drawX < 480) && (drawY >=0) && (drawY <480)) begin
             read_addr = drawX + drawY * 480;
             play_area = 1'b1;
@@ -108,8 +115,11 @@ module mb_usb_hdmi_top(
         else if (tank_on) begin
             write_data = {6'b000001, tank_rom};
         end
+        else if (tank2_on) begin
+            write_data = {6'b000010, tank2_rom};
+        end
         else begin
-           write_data = 8'b00001000;
+           write_data = 8'b00001100;
         end
     end
     
@@ -124,7 +134,8 @@ module mb_usb_hdmi_top(
         .clkb(Clk),
         .dinb(write_data),
         .enb(1'b1),
-        .web(write_en)
+        .web(write_en),
+        .doutb(doutb)
     );
     always_ff @(posedge clk_25MHz) begin
         if (play_area == 0) begin
@@ -134,14 +145,14 @@ module mb_usb_hdmi_top(
             green <= 4'b0;
             blue <= 4'b0;
         end
-        else if (read_data[3:2] == 2'b10) begin
+        else if (read_data[3:2] == 2'b11) begin
             color_idx <= read_data[1:0];
             palette_idx <= 2'b00;
             red <= 4'b0;
             green <= 4'b0;
             blue <= 4'b0;
         end
-        else if (read_data[3:2] == 2'b01) begin
+        else if (read_data[3:2] == 2'b01 || read_data[3:2] == 2'b10) begin
             palette_idx <= read_data[3:2];
             color_idx <= read_data[1:0];
             if (color_idx == 2'b01) begin
@@ -253,21 +264,37 @@ module mb_usb_hdmi_top(
 
     
     //Ball Module
-    tank3_example TK3(
+    tank3_example TE3(
         .vga_clk(Clk),
         .DrawX(fb_x),
         .DrawY(fb_y),
-        .tankX(ballxsig),
-        .tankY(ballysig),
+        .tankX(tank1xsig),
+        .tankY(tank1ysig),
         .rom_q(tank_rom),
         .tank_on(tank_on)
+    );
+    tank2_example TK2(
+        .vga_clk(Clk),
+        .DrawX(fb_x),
+        .DrawY(fb_y),
+        .tankX(tank2xsig),
+        .tankY(tank2ysig),
+        .rom_q(tank2_rom),
+        .tank_on(tank2_on)
     );
     tank TK(
         .Reset(reset_ah),
         .frame_clk(vsync),                    //Figure out what this should be so that the ball will move
         .keycode(keycode0_gpio[7:0]),    //Notice: only one keycode connected to ball by default
-        .BallX(ballxsig),
-        .BallY(ballysig)
+        .BallX(tank1xsig),
+        .BallY(tank1ysig)
+    );
+    tank2 TE2(
+        .Reset(reset_ah),
+        .frame_clk(vsync),
+        .keycode(keycode1_gpio[7:0]),
+        .BallX(tank2xsig),
+        .BallY(tank2ysig)
     );
     block BK(
         .Clk(Clk),

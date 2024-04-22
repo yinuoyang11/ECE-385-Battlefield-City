@@ -70,7 +70,8 @@ proc create_report { reportName command } {
   }
 }
 OPTRACE "tank3_rom_synth_1" START { ROLLUP_AUTO }
-set_param chipscope.maxJobs 5
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 set_param project.vivado.isBlockSynthRun true
 set_msg_config -msgmgr_mode ooc_run
 OPTRACE "Creating in-memory project" START { }
@@ -85,16 +86,13 @@ set_property parent.project_path E:/xilinx/final_project/lab6.xpr [current_proje
 set_property XPM_LIBRARIES {XPM_CDC XPM_FIFO XPM_MEMORY} [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_repo_paths {
-  f:/hdmi_tx_1.0
-  e:/xilinx/ip_repo/hdmi_text_controller_1_0
-} [current_project]
+set_property ip_repo_paths f:/hdmi_tx_1.0 [current_project]
 update_ip_catalog
 set_property ip_output_repo e:/xilinx/final_project/lab6.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
-read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }

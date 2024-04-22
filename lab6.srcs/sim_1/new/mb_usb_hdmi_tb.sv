@@ -36,7 +36,7 @@ module mb_usb_hdmi_tb();
         reset = 0; //reset IP
         repeat (4) @(posedge clk);
         reset <= 1;
-        repeat (4) @(posedge clk);
+        repeat (100) @(posedge clk);
         reset <= 0;
     end
     

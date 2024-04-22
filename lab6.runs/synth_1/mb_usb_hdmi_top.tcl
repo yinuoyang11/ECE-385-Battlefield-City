@@ -71,7 +71,8 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
-set_msg_config -id {Common 17-41} -limit 10000000
+set_msg_config -id {HDL 9-1061} -limit 100000
+set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
 create_project -in_memory -part xc7s50csga324-1
 
@@ -100,7 +101,9 @@ read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_palette.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv
-  F:/新建文件夹/mb_usb_hdmi_top.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2_example.sv
 }
 read_verilog -library xil_defaultlib E:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/hdl/mb_block_wrapper.v
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
@@ -145,9 +148,6 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/data/mb_bootloop_le.elf]
 
-read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
-set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0_ooc.xdc]
-
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
@@ -160,6 +160,9 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom_ooc.xdc]
+
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

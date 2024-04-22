@@ -13,7 +13,7 @@ logic [3:0] palette_red, palette_green, palette_blue;
 logic negedge_vga_clk;
 
 // read from ROM on negedge, set pixel on posedge
-assign negedge_vga_clk = ~vga_clk;
+//assign negedge_vga_clk = ~vga_clk;
 
 // address into the rom = (x*xDim)/640 + ((y*yDim)/480) * xDim
 // this will stretch out the sprite across the entire screen
@@ -39,7 +39,7 @@ end
 //end
 
 red_brick_rom red_brick_rom (
-	.clka   (negedge_vga_clk),
+	.clka   (vga_clk),
 	.addra (rom_address),
 	.douta       (rom_q)
 );
