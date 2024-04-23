@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date             : Sun Apr 21 20:58:47 2024
+| Date             : Mon Apr 22 22:01:01 2024
 | Host             : yinuo running 64-bit major release  (build 9200)
 | Command          : report_power -file mb_usb_hdmi_top_power_routed.rpt -pb mb_usb_hdmi_top_power_summary_routed.pb -rpx mb_usb_hdmi_top_power_routed.rpx
 | Design           : mb_usb_hdmi_top
@@ -52,21 +52,21 @@ Table of Contents
 +--------------------------+-----------+----------+-----------+-----------------+
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
-| Clocks                   |     0.017 |       12 |       --- |             --- |
-| Slice Logic              |     0.009 |     8146 |       --- |             --- |
-|   LUT as Logic           |     0.007 |     3064 |     32600 |            9.40 |
+| Clocks                   |     0.018 |       12 |       --- |             --- |
+| Slice Logic              |     0.008 |     8239 |       --- |             --- |
+|   LUT as Logic           |     0.006 |     3178 |     32600 |            9.75 |
 |   LUT as Distributed RAM |    <0.001 |      172 |      9600 |            1.79 |
-|   CARRY4                 |    <0.001 |      164 |      8150 |            2.01 |
-|   Register               |    <0.001 |     2765 |     65200 |            4.24 |
+|   CARRY4                 |    <0.001 |      170 |      8150 |            2.09 |
+|   Register               |    <0.001 |     2783 |     65200 |            4.27 |
 |   F7/F8 Muxes            |    <0.001 |       68 |     32600 |            0.21 |
 |   LUT as Shift Register  |    <0.001 |      112 |      9600 |            1.17 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Others                 |     0.000 |      914 |       --- |             --- |
-| Signals                  |     0.012 |     5949 |       --- |             --- |
+|   Others                 |     0.000 |      913 |       --- |             --- |
+| Signals                  |     0.011 |     6058 |       --- |             --- |
 | Block RAM                |     0.004 |     66.5 |        75 |           88.67 |
 | MMCM                     |     0.212 |        2 |         5 |           40.00 |
-| DSPs                     |     0.005 |       10 |       120 |            8.33 |
-| I/O                      |     0.142 |       42 |       210 |           20.00 |
+| DSPs                     |     0.006 |       11 |       120 |            9.17 |
+| I/O                      |     0.143 |       42 |       210 |           20.00 |
 | Static Power             |     0.078 |          |           |                 |
 | Total                    |     0.479 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
@@ -78,7 +78,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) | Powerup (A) | Budget (A)  | Margin (A) |
 +-----------+-------------+-----------+-------------+------------+-------------+-------------+------------+
-| Vccint    |       1.000 |     0.060 |       0.048 |      0.012 |       NA    | Unspecified | NA         |
+| Vccint    |       1.000 |     0.059 |       0.047 |      0.012 |       NA    | Unspecified | NA         |
 | Vccaux    |       1.800 |     0.130 |       0.118 |      0.013 |       NA    | Unspecified | NA         |
 | Vcco33    |       3.300 |     0.041 |       0.040 |      0.001 |       NA    | Unspecified | NA         |
 | Vcco25    |       2.500 |     0.004 |       0.003 |      0.001 |       NA    | Unspecified | NA         |
@@ -157,13 +157,12 @@ Table of Contents
 |   BK                        |     0.003 |
 |     RB                      |     0.003 |
 |       red_brick_rom         |     0.002 |
-|   FB                        |     0.002 |
-|     U0                      |     0.002 |
-|       inst_blk_mem_gen      |     0.002 |
-|   TE2                       |     0.003 |
+|   FB                        |     0.003 |
+|     U0                      |     0.003 |
+|       inst_blk_mem_gen      |     0.003 |
+|   TE2                       |     0.002 |
 |   TE3                       |     0.002 |
 |   TK                        |     0.003 |
-|   TK2                       |     0.002 |
 |   clk_wiz                   |     0.106 |
 |     inst                    |     0.106 |
 |   mb_block_i                |     0.132 |

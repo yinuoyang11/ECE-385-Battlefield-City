@@ -64,9 +64,11 @@ module mb_usb_hdmi_top(
     logic [COUNTER_WIDTH-1:0] counter;
     logic [9:0] fb_x;
     logic [9:0] fb_y;
-    
+    logic [9:0] tank1x_next, tank1y_next, tank2x_next, tank2y_next;
     logic [17:0] read_addr;
     logic [7:0] read_data;
+    logic tank1_readdata_flag;
+    logic [7:0] tank1_readdata;
     logic [18:0] write_addr;
     logic [7:0] write_data;
     logic [7:0] doutb;
@@ -95,10 +97,17 @@ module mb_usb_hdmi_top(
         fb_x = counter % 480;
         fb_y = counter / 480;
         if ((drawX >=0) && (drawX < 480) && (drawY >=0) && (drawY <480)) begin
+            tank1_readdata_flag = 0;
             read_addr = drawX + drawY * 480;
             play_area = 1'b1;
         end
+        else if ((drawY>480) && (drawY<490)) begin
+            tank1_readdata_flag = 1;
+            read_addr = tank2x_next + tank2y_next*480;
+            play_area = 1'b0;
+        end
         else begin
+            tank1_readdata_flag = 0;
             read_addr = 0;
             play_area = 1'b0;
         end
@@ -138,6 +147,12 @@ module mb_usb_hdmi_top(
         .doutb(doutb)
     );
     always_ff @(posedge clk_25MHz) begin
+        if (tank1_readdata_flag == 1) begin
+            tank1_readdata <= read_data;
+        end
+        else begin
+            tank1_readdata <= 8'hff;
+        end
         if (play_area == 0) begin
             color_idx <= read_data[1:0];
             palette_idx <= 2'b00;
@@ -197,7 +212,6 @@ module mb_usb_hdmi_top(
         .hex_seg(hex_segB),
         .hex_grid(hex_gridB)
     );
-    
     mb_block mb_block_i (
         .clk_100MHz(Clk),
         .gpio_usb_int_tri_i(gpio_usb_int_tri_i),
@@ -273,7 +287,8 @@ module mb_usb_hdmi_top(
         .rom_q(tank_rom),
         .tank_on(tank_on)
     );
-    tank2_example TK2(
+
+    tank2_example TE2(
         .vga_clk(Clk),
         .DrawX(fb_x),
         .DrawY(fb_y),
@@ -289,12 +304,15 @@ module mb_usb_hdmi_top(
         .BallX(tank1xsig),
         .BallY(tank1ysig)
     );
-    tank2 TE2(
+    tank2 TK2(
         .Reset(reset_ah),
         .frame_clk(vsync),
-        .keycode(keycode1_gpio[7:0]),
+        .tank1_readdata(tank1_readdata),
+        .keycode(keycode0_gpio[7:0]),
         .BallX(tank2xsig),
-        .BallY(tank2ysig)
+        .BallY(tank2ysig),
+        .Ball_X_next_(tank2x_next),
+        .Ball_Y_next_(tank2y_next)
     );
     block BK(
         .Clk(Clk),

@@ -3,7 +3,7 @@ module palette (
 	output logic [3:0] red, green, blue
 );
 
-localparam [0:1][0:3][11:0] palette = {
+localparam [0:2][0:3][11:0] palette = {
 {
 // block palette
 	{4'hA, 4'h0, 4'h0},
