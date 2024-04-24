@@ -17,7 +17,7 @@ logic negedge_vga_clk;
 // address into the rom = (x*xDim)/640 + ((y*yDim)/480) * xDim
 // this will stretch out the sprite across the entire screen
 always_comb begin
-    if ((DrawX >= (tankX - 12)) && (DrawX <= (tankX + 12)) && (DrawY >= (tankY - 12)) && (DrawY <= (tankY + 12))) begin
+    if ((DrawX >= (tankX - 12)) && (DrawX < (tankX + 12)) && (DrawY >= (tankY - 12)) && (DrawY < (tankY + 12))) begin
         tank_on_ = 1'b1;
         rom_address = (DrawX - tankX + 12) + (DrawY - tankY + 12)*24;
     end

@@ -5,6 +5,9 @@ module  tank2
 ( 
     input  logic        Reset, 
     input  logic        frame_clk,
+    input  logic        clk_25MHz,
+    input  logic        readen_left_flag,
+    input  logic        readen_right_flag,
     input  logic [7:0]  keycode,
     input  logic [7:0]  tank1_readdata,
     output logic [9:0]  BallX, 
@@ -15,10 +18,10 @@ module  tank2
     
 
 	 
-    parameter [9:0] Ball_X_Center=88;  // Center position on the X axis
-    parameter [9:0] Ball_Y_Center=180;  // Center position on the Y axis
+    parameter [9:0] Ball_X_Center=360;  // Center position on the X axis
+    parameter [9:0] Ball_Y_Center=465;  // Center position on the Y axis
     parameter [9:0] Ball_X_Min=0;       // Leftmost point on the X axis
-    parameter [9:0] Ball_X_Max=639;     // Rightmost point on the X axis
+    parameter [9:0] Ball_X_Max=479;     // Rightmost point on the X axis
     parameter [9:0] Ball_Y_Min=0;       // Topmost point on the Y axis
     parameter [9:0] Ball_Y_Max=479;     // Bottommost point on the Y axis
     parameter [9:0] Ball_X_Step=1;      // Step size on the X axis
@@ -32,11 +35,12 @@ module  tank2
     logic [9:0] Ball_X_next;
     logic [9:0] Ball_Y_next;
     logic [9:0] BallS;
-    logic nupdate_flag;
     logic copy_flag;
+    logic copy_flag_left_reg;
+    logic copy_flag_right_reg;
     assign BallS = 12;
     always_comb begin
-        copy_flag = nupdate_flag;
+        copy_flag = 0;
         Ball_Y_Motion_next = Ball_Y_Motion; // set default motion to be same as prev clock cycle 
         Ball_X_Motion_next = Ball_X_Motion;
         //modify to control ball motion with the keycod
@@ -90,33 +94,44 @@ module  tank2
     assign Ball_Y_next = (BallY + Ball_Y_Motion_next);
     assign Ball_X_next_ = Ball_X_next;
     assign Ball_Y_next_ = Ball_Y_next;
-    always_ff @(posedge frame_clk) //make sure the frame clock is instantiated correctly
+    always_ff @(posedge frame_clk or posedge Reset) //make sure the frame clock is instantiated correctly
     begin: Move_Ball
         if (Reset)
         begin 
             Ball_Y_Motion <= 10'd0; //Ball_Y_Step;
 			Ball_X_Motion <= 10'd0; //Ball_X_Step;
-            
 			BallY <= Ball_Y_Center;
 			BallX <= Ball_X_Center;
         end
         else 
         begin 
-            if (copy_flag == 1) begin
+        
+            if (copy_flag_left_reg == 0 && copy_flag_right_reg == 0) begin
 			    Ball_Y_Motion <= Ball_Y_Motion_next; 
 			    Ball_X_Motion <= Ball_X_Motion_next; 
 			
                 BallY <= Ball_Y_next;  // Update ball position
                 BallX <= Ball_X_next;
-                nupdate_flag <= 0;
 			end
 			else begin
-			    nupdate_flag <= 0;
 			end
 		end  
     end
 
-
+always_ff @(posedge clk_25MHz) begin
+if (Reset) begin
+    copy_flag_left_reg <= 0;
+    copy_flag_right_reg <= 0;
+end
+else if (readen_left_flag) begin
+    copy_flag_left_reg <= copy_flag;
+end
+else if (readen_right_flag) begin
+    copy_flag_right_reg <= copy_flag;
+end
+else begin
+end
+end
     
       
 endmodule

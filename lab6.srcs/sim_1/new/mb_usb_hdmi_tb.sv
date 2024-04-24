@@ -28,6 +28,8 @@ module mb_usb_hdmi_tb();
         .Clk(clk),
         .reset_rtl_0(reset)
     );
+//    logic keycode[7:0];
+//    assign MB.keycode0_gpio = keycode;
        
     always begin : CLOCK_GENERATION
         #5 clk = ~clk;
@@ -38,6 +40,7 @@ module mb_usb_hdmi_tb();
         reset <= 1;
         repeat (100) @(posedge clk);
         reset <= 0;
+        #100 MB.keycode0_gpio <= 32'h0000004f;
     end
     
 endmodule

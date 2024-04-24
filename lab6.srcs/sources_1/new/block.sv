@@ -32,7 +32,7 @@ integer block_begin_y = 160;
 logic block_on_;
 logic rom_q_;
 always_comb begin
-    if ((drawX >= block_begin_x) && (drawX <= block_begin_x + block_width) && (drawY >= block_begin_y) && (drawY <= block_begin_y + block_height)) begin
+    if ((drawX >= block_begin_x) && (drawX < block_begin_x + block_width) && (drawY >= block_begin_y) && (drawY < block_begin_y + block_height)) begin
         block_on_ = 1'b1;
     end
     else begin

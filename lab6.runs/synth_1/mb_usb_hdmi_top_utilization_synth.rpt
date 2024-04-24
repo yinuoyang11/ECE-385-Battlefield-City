@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Mon Apr 22 21:57:37 2024
+| Date         : Tue Apr 23 20:06:50 2024
 | Host         : yinuo running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mb_usb_hdmi_top_utilization_synth.rpt -pb mb_usb_hdmi_top_utilization_synth.pb
 | Design       : mb_usb_hdmi_top
@@ -31,12 +31,12 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             |  654 |     0 |          0 |     32600 |  2.01 |
-|   LUT as Logic          |  654 |     0 |          0 |     32600 |  2.01 |
+| Slice LUTs*             | 1051 |     0 |          0 |     32600 |  3.22 |
+|   LUT as Logic          | 1051 |     0 |          0 |     32600 |  3.22 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  227 |     0 |          0 |     65200 |  0.35 |
-|   Register as Flip Flop |  209 |     0 |          0 |     65200 |  0.32 |
-|   Register as Latch     |   18 |     0 |          0 |     65200 |  0.03 |
+| Slice Registers         |  258 |     0 |          0 |     65200 |  0.40 |
+|   Register as Flip Flop |  221 |     0 |          0 |     65200 |  0.34 |
+|   Register as Latch     |   37 |     0 |          0 |     65200 |  0.06 |
 | F7 Muxes                |    0 |     0 |          0 |     16300 |  0.00 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
@@ -56,10 +56,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 18    |          Yes |           - |          Set |
-| 77    |          Yes |           - |        Reset |
-| 20    |          Yes |         Set |            - |
-| 112   |          Yes |       Reset |            - |
+| 37    |          Yes |           - |          Set |
+| 159   |          Yes |           - |        Reset |
+| 7     |          Yes |         Set |            - |
+| 55    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,20 +148,20 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT6     |  197 |                 LUT |
-| LUT4     |  174 |                 LUT |
-| LUT3     |  135 |                 LUT |
-| LUT5     |  133 |                 LUT |
-| LUT2     |  127 |                 LUT |
-| FDRE     |  112 |        Flop & Latch |
-| CARRY4   |   94 |          CarryLogic |
-| FDCE     |   59 |        Flop & Latch |
+| LUT2     |  387 |                 LUT |
+| LUT6     |  316 |                 LUT |
+| LUT4     |  185 |                 LUT |
+| CARRY4   |  173 |          CarryLogic |
+| LUT3     |  153 |                 LUT |
+| LUT5     |  135 |                 LUT |
+| FDCE     |  122 |        Flop & Latch |
+| FDRE     |   55 |        Flop & Latch |
+| LDCE     |   37 |        Flop & Latch |
+| FDPE     |   37 |        Flop & Latch |
+| LUT1     |   34 |                 LUT |
 | OBUF     |   29 |                  IO |
-| LUT1     |   24 |                 LUT |
-| FDSE     |   20 |        Flop & Latch |
-| LDCE     |   18 |        Flop & Latch |
-| FDPE     |   18 |        Flop & Latch |
 | DSP48E1  |    8 |    Block Arithmetic |
+| FDSE     |    7 |        Flop & Latch |
 | IBUF     |    5 |                  IO |
 | BUFG     |    1 |               Clock |
 +----------+------+---------------------+

@@ -51,7 +51,6 @@ module mb_usb_hdmi_top(
     logic [3:0] red, green, blue;
     logic [3:0] fb_red, fb_green, fb_blue;
     logic reset_ah;
-    
   
     logic block_on;
     logic tank_on, tank2_on;
@@ -67,15 +66,22 @@ module mb_usb_hdmi_top(
     logic [9:0] tank1x_next, tank1y_next, tank2x_next, tank2y_next;
     logic [17:0] read_addr;
     logic [7:0] read_data;
-    logic tank1_readdata_flag;
+    
+    logic tank1_readleft_flag;
+    logic tank1_readright_flag;
+    logic tank2_readleft_flag;
+    logic tank2_readright_flag;
     logic [7:0] tank1_readdata;
+    logic [7:0] tank0_readdata;
     logic [18:0] write_addr;
     logic [7:0] write_data;
     logic [7:0] doutb;
     logic write_en;
+    logic read_en;
     logic play_area;
     logic [1:0] color_idx;
     logic [1:0] palette_idx;
+
     always_ff @(posedge Clk or posedge reset_ah) begin
         if (reset_ah == 1'b1) begin
             write_addr <= counter;
@@ -96,39 +102,63 @@ module mb_usb_hdmi_top(
     always_comb begin
         fb_x = counter % 480;
         fb_y = counter / 480;
+        tank1_readleft_flag = 0;
+        tank1_readright_flag = 0;
+        tank2_readleft_flag = 0;
+        tank2_readright_flag = 0;
+        play_area = 1'b0;
+        read_en = 0;
+        // state machine
         if ((drawX >=0) && (drawX < 480) && (drawY >=0) && (drawY <480)) begin
-            tank1_readdata_flag = 0;
             read_addr = drawX + drawY * 480;
+            read_en = 1;
             play_area = 1'b1;
         end
-        else if ((drawY>480) && (drawY<490)) begin
-            tank1_readdata_flag = 1;
-            read_addr = tank2x_next + tank2y_next*480;
-            play_area = 1'b0;
+        //tank2
+        else if ((drawY == 480) && (drawX>=0) && (drawX<10)) begin
+            tank2_readleft_flag = 1;
+            read_addr = (tank2x_next-tank2xsig)*12 + tank2x_next + (tank2y_next-tank2ysig)*12 + ((tank2x_next-tank2xsig)*12 + tank2y_next+(tank2y_next-tank2ysig)*12)*480;
+            read_en = 1;
+        end
+        else if ((drawY == 480) && (drawX>=10) && (drawX<20)) begin
+            tank2_readright_flag = 1;
+            read_addr = (tank2x_next-tank2xsig)*12 + tank2x_next + (tank2ysig-tank2y_next)*12 + ((tank2xsig-tank2x_next)*12 + tank2y_next+(tank2y_next-tank2ysig)*12)*480;
+            read_en = 1;
+        end
+        //tank1
+        else if ((drawY == 480) && (drawX>=20) && (drawX<30)) begin
+            tank1_readleft_flag = 1;
+            read_addr = (tank1x_next-tank1xsig)*12 + tank1x_next + (tank1y_next-tank1ysig)*12 + ((tank1x_next-tank1xsig)*12 + tank1y_next+(tank1y_next-tank1ysig)*12)*480;
+            read_en = 1;
+        end
+        else if ((drawY == 480) && (drawX>=30) && (drawX<40)) begin
+            tank1_readright_flag = 1;
+            read_addr = (tank1x_next-tank1xsig)*12 + tank1x_next + (tank1ysig-tank1y_next)*12 + ((tank1xsig-tank1x_next)*12 + tank1y_next+(tank1y_next-tank1ysig)*12)*480;
+            read_en = 1;
         end
         else begin
-            tank1_readdata_flag = 0;
-            read_addr = 0;
-            play_area = 1'b0;
         end
-        if ((counter >= 0) && (counter <= 19'b0111000001111111111) && (~vde)) begin
+        
+        
+        if ((write_addr >= 0) && (write_addr <= 19'b0111000001111111111) && (~vde)) begin
             write_en = 1;
         end
         else begin
             write_en = 0;
         end
-        
+    end
+    always_ff @(posedge Clk) begin
         if (block_on) begin
-            write_data = {6'b0, block_rom};
+            write_data <= {6'b0, block_rom};
         end
         else if (tank_on) begin
-            write_data = {6'b000001, tank_rom};
+            write_data <= {6'b000001, tank_rom};
         end
         else if (tank2_on) begin
-            write_data = {6'b000010, tank2_rom};
+            write_data <= {6'b000010, tank2_rom};
         end
         else begin
-           write_data = 8'b00001100;
+           write_data <= 8'b00001100;
         end
     end
     
@@ -136,7 +166,7 @@ module mb_usb_hdmi_top(
         .addra(read_addr),
         .clka(clk_25MHz),
         .douta(read_data),
-        .ena(vde),
+        .ena(read_en),
         .wea(1'b0),
         
         .addrb(write_addr),
@@ -147,17 +177,21 @@ module mb_usb_hdmi_top(
         .doutb(doutb)
     );
     always_ff @(posedge clk_25MHz) begin
-        if (tank1_readdata_flag == 1) begin
+        if (tank2_readleft_flag == 1 || tank2_readright_flag == 1) begin
             tank1_readdata <= read_data;
+        end
+        else if (tank1_readright_flag == 1 || tank1_readleft_flag == 1) begin
+            tank0_readdata <= read_data;
         end
         else begin
             tank1_readdata <= 8'hff;
+            tank0_readdata <= 8'hff;
         end
         if (play_area == 0) begin
             color_idx <= read_data[1:0];
             palette_idx <= 2'b00;
             red <= 4'b1111;
-            green <= 4'b0;
+            green <= 4'b0111;
             blue <= 4'b0;
         end
         else if (read_data[3:2] == 2'b11) begin
@@ -226,7 +260,7 @@ module mb_usb_hdmi_top(
         .usb_spi_sclk(usb_spi_sclk),
         .usb_spi_ss(usb_spi_ss)
     );
-        
+  
     //clock wizard configured with a 1x and 5x clock for HDMI
     clk_wiz_0 clk_wiz (
         .clk_out1(clk_25MHz),
@@ -296,17 +330,26 @@ module mb_usb_hdmi_top(
         .tankY(tank2ysig),
         .rom_q(tank2_rom),
         .tank_on(tank2_on)
-    );
+        );
     tank TK(
         .Reset(reset_ah),
-        .frame_clk(vsync),                    //Figure out what this should be so that the ball will move
+        .frame_clk(vsync),     
+        .clk_25MHz(clk_25MHz),               //Figure out what this should be so that the ball will move
+        .readen_left_flag(tank1_readleft_flag),
+        .readen_right_flag(tank1_readright_flag),
+        .tank1_readdata(tank0_readdata),
         .keycode(keycode0_gpio[7:0]),    //Notice: only one keycode connected to ball by default
         .BallX(tank1xsig),
-        .BallY(tank1ysig)
+        .BallY(tank1ysig),
+        .Ball_X_next_(tank1x_next),
+        .Ball_Y_next_(tank1y_next)
     );
     tank2 TK2(
         .Reset(reset_ah),
         .frame_clk(vsync),
+        .clk_25MHz(clk_25MHz),
+        .readen_left_flag(tank2_readleft_flag),
+        .readen_right_flag(tank2_readright_flag),
         .tank1_readdata(tank1_readdata),
         .keycode(keycode0_gpio[7:0]),
         .BallX(tank2xsig),
