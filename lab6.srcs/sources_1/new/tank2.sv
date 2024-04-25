@@ -105,7 +105,6 @@ module  tank2
         end
         else 
         begin 
-        
             if (copy_flag_left_reg == 0 && copy_flag_right_reg == 0) begin
 			    Ball_Y_Motion <= Ball_Y_Motion_next; 
 			    Ball_X_Motion <= Ball_X_Motion_next; 

@@ -45,7 +45,7 @@ module mb_usb_hdmi_top(
     logic [31:0] keycode0_gpio, keycode1_gpio;
     logic clk_25MHz, clk_125MHz, clk, clk_100MHz;
     logic locked;
-    logic [9:0] drawX, drawY, tank1xsig, tank1ysig, tank2xsig, tank2ysig, ballsizesig;
+    logic [9:0] drawX, drawY, ballsizesig;
 
     logic hsync, vsync, vde;
     logic [3:0] red, green, blue;
@@ -63,16 +63,10 @@ module mb_usb_hdmi_top(
     logic [COUNTER_WIDTH-1:0] counter;
     logic [9:0] fb_x;
     logic [9:0] fb_y;
-    logic [9:0] tank1x_next, tank1y_next, tank2x_next, tank2y_next;
     logic [17:0] read_addr;
     logic [7:0] read_data;
     
-    logic tank1_readleft_flag;
-    logic tank1_readright_flag;
-    logic tank2_readleft_flag;
-    logic tank2_readright_flag;
-    logic [7:0] tank1_readdata;
-    logic [7:0] tank0_readdata;
+
     logic [18:0] write_addr;
     logic [7:0] write_data;
     logic [7:0] doutb;
@@ -81,6 +75,29 @@ module mb_usb_hdmi_top(
     logic play_area;
     logic [1:0] color_idx;
     logic [1:0] palette_idx;
+
+    //tank1
+    logic tank1_readleft_flag;
+    logic tank1_readright_flag;
+    logic [7:0] tank0_readdata;
+    logic [9:0] tank1x_next, tank1y_next, tank1xsig, tank1ysig;
+    logic [1:0] tank1_direction;
+
+    //tank2
+    logic tank2_readleft_flag;
+    logic tank2_readright_flag;
+    logic [7:0] tank1_readdata;
+    logic [9:0] tank2x_next, tank2y_next, tank2xsig, tank2ysig;
+    logic [1:0] tank2_direction;
+    // missles 1
+    logic missle1_read_flag[3];
+    logic tank1_in[3];
+    logic block1_in[3];
+    logic [9:0] missle1_center_x[3];
+    logic [9:0] missle1_center_y[3];
+    logic [9:0] missle1_center_x_next[3];
+    logic [9:0] missle1_center_y_next[3];
+    logic missle1_active[3];
 
     always_ff @(posedge Clk or posedge reset_ah) begin
         if (reset_ah == 1'b1) begin
@@ -106,6 +123,9 @@ module mb_usb_hdmi_top(
         tank1_readright_flag = 0;
         tank2_readleft_flag = 0;
         tank2_readright_flag = 0;
+        for (int i=0;i<3;i++) begin
+            missle1_read_flag[i]=0;
+        end
         play_area = 1'b0;
         read_en = 0;
         // state machine
@@ -134,6 +154,22 @@ module mb_usb_hdmi_top(
         else if ((drawY == 480) && (drawX>=30) && (drawX<40)) begin
             tank1_readright_flag = 1;
             read_addr = (tank1x_next-tank1xsig)*12 + tank1x_next + (tank1ysig-tank1y_next)*12 + ((tank1xsig-tank1x_next)*12 + tank1y_next+(tank1y_next-tank1ysig)*12)*480;
+            read_en = 1;
+        end
+        //missle1
+        else if ((drawY == 480) && (drawX>=40) && (drawX<45)) begin
+            missle1_read_flag[0] = 1;
+            read_addr = missle1_center_x_next[0] + missle1_center_y_next[0]*480;
+            read_en = 1;
+        end
+        else if ((drawY == 480) && (drawX>=45) && (drawX<50)) begin
+            missle1_read_flag[1] = 1;
+            read_addr = missle1_center_x_next[1] + missle1_center_y_next[1]*480;
+            read_en = 1;
+        end
+        else if ((drawY == 480) && (drawX>=50) && (drawX<55)) begin
+            missle1_read_flag[2] = 1;
+            read_addr = missle1_center_x_next[2] + missle1_center_y_next[2]*480;
             read_en = 1;
         end
         else begin
@@ -183,9 +219,55 @@ module mb_usb_hdmi_top(
         else if (tank1_readright_flag == 1 || tank1_readleft_flag == 1) begin
             tank0_readdata <= read_data;
         end
+        else if (missle1_read_flag[0] == 1) begin
+            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+                tank1_in[0] <= 1;
+            end
+            else begin
+                tank1_in[0] <= 0;
+            end
+            if (read_data[3:2] == 2'b00) begin
+                block1_in[0] <= 1;
+            end
+            else begin
+                block1_in[0] <= 0;
+            end
+        end
+        else if (missle1_read_flag[1] == 1) begin
+            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+                tank1_in[1] <= 1;
+            end
+            else begin
+                tank1_in[1] <= 0;
+            end
+            if (read_data[3:2] == 2'b00) begin
+                block1_in[1] <= 1;
+            end
+            else begin
+                block1_in[1] <= 0;
+            end
+        end
+        else if (missle1_read_flag[2] == 1) begin
+            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+                tank1_in[2] <= 1;
+            end
+            else begin
+                tank1_in[2] <= 0;
+            end
+            if (read_data[3:2] == 2'b00) begin
+                block1_in[2] <= 1;
+            end
+            else begin
+                block1_in[2] <= 0;
+            end
+        end
         else begin
             tank1_readdata <= 8'hff;
             tank0_readdata <= 8'hff;
+            for (int i = 0;i<3;i++) begin
+                tank1_in[i] <= 0;
+                block1_in[i] <= 0;
+            end
         end
         if (play_area == 0) begin
             color_idx <= read_data[1:0];
@@ -344,6 +426,23 @@ module mb_usb_hdmi_top(
         .Ball_X_next_(tank1x_next),
         .Ball_Y_next_(tank1y_next)
     );
+    missle TK1M(
+        .Reset(reset_ah),
+        .frame_clk(vsync),
+        .clk_25MHz(clk_25MHz),
+        .missle_read_flag(missle1_read_flag),
+        .tank_x(tank1xsig),
+        .tank_y(tank1ysig),
+        .tank1_direction(tank1_direction),
+        .tank_flag(tank1_in),
+        .block_flag(block1_in),
+        .keycode(keycode0_gpio[7:0]),
+        .missle_center_x(missle1_center_x),
+        .missle_center_y(missle1_center_y),
+        .missle_center_x_next(missle1_center_x_next),
+        .missle_center_y_next(missle1_center_y_next),
+        .active_missle_flag(missle1_active)
+    )
     tank2 TK2(
         .Reset(reset_ah),
         .frame_clk(vsync),
