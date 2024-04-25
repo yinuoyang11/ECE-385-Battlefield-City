@@ -53,10 +53,11 @@ module mb_usb_hdmi_top(
     logic reset_ah;
   
     logic block_on;
-    logic tank_on, tank2_on;
+    logic tank_on, tank2_on, missle1_on;
     logic [1:0] block_rom;
     logic [1:0] tank_rom;
     logic [1:0] tank2_rom;
+    logic [1:0] missle1_rom;
     assign reset_ah = reset_rtl_0;
     
     
@@ -74,7 +75,7 @@ module mb_usb_hdmi_top(
     logic read_en;
     logic play_area;
     logic [1:0] color_idx;
-    logic [1:0] palette_idx;
+    logic [2:0] palette_idx;
 
     //tank1
     logic tank1_readleft_flag;
@@ -184,7 +185,10 @@ module mb_usb_hdmi_top(
         end
     end
     always_ff @(posedge Clk) begin
-        if (block_on) begin
+        if (missle1_on) begin
+            write_data <= {6'b000100, missle1_rom};
+        end
+        else if (block_on) begin
             write_data <= {6'b0, block_rom};
         end
         else if (tank_on) begin
@@ -271,20 +275,20 @@ module mb_usb_hdmi_top(
         end
         if (play_area == 0) begin
             color_idx <= read_data[1:0];
-            palette_idx <= 2'b00;
+            palette_idx <= 3'b000;
             red <= 4'b1111;
             green <= 4'b0111;
             blue <= 4'b0;
         end
         else if (read_data[3:2] == 2'b11) begin
             color_idx <= read_data[1:0];
-            palette_idx <= 2'b00;
+            palette_idx <= 3'b000;
             red <= 4'b0;
             green <= 4'b0;
             blue <= 4'b0;
         end
         else if (read_data[3:2] == 2'b01 || read_data[3:2] == 2'b10) begin
-            palette_idx <= read_data[3:2];
+            palette_idx <= read_data[4:2];
             color_idx <= read_data[1:0];
             if (color_idx == 2'b01) begin
                 red <= 4'b0;
@@ -298,7 +302,7 @@ module mb_usb_hdmi_top(
             end
         end
         else begin
-            palette_idx <= read_data[3:2];
+            palette_idx <= read_data[4:2];
             color_idx <= read_data[1:0];
             red <= fb_red;
             green <= fb_green;
@@ -424,7 +428,8 @@ module mb_usb_hdmi_top(
         .BallX(tank1xsig),
         .BallY(tank1ysig),
         .Ball_X_next_(tank1x_next),
-        .Ball_Y_next_(tank1y_next)
+        .Ball_Y_next_(tank1y_next),
+        .direction(tank1_direction)
     );
     missle TK1M(
         .Reset(reset_ah),
@@ -433,7 +438,7 @@ module mb_usb_hdmi_top(
         .missle_read_flag(missle1_read_flag),
         .tank_x(tank1xsig),
         .tank_y(tank1ysig),
-        .tank1_direction(tank1_direction),
+        .tank_direction(tank1_direction),
         .tank_flag(tank1_in),
         .block_flag(block1_in),
         .keycode(keycode0_gpio[7:0]),
@@ -442,7 +447,17 @@ module mb_usb_hdmi_top(
         .missle_center_x_next(missle1_center_x_next),
         .missle_center_y_next(missle1_center_y_next),
         .active_missle_flag(missle1_active)
-    )
+    );
+    s_bullet_example BE(
+        .vga_clk(Clk),
+        .DrawX(fb_x),
+        .DrawY(fb_y),
+        .missle_x(missle1_center_x),
+        .missle_y(missle1_center_y),
+        .missle_active_flag(missle1_active),
+        .rom_q(missle1_rom),
+        .missle_on(missle1_on)
+    );
     tank2 TK2(
         .Reset(reset_ah),
         .frame_clk(vsync),

@@ -93,6 +93,7 @@ OPTRACE "Creating in-memory project" END { }
 OPTRACE "Adding files" START { }
 add_files E:/xilinx/red_brick/red_brick.COE
 add_files E:/xilinx/tank3/tank3.COE
+add_files e:/xilinx/s_bullet/s_bullet.COE
 read_verilog -library xil_defaultlib -sv {
   F:/新建文件夹/VGA_controller.sv
   F:/新建文件夹/ball.sv
@@ -104,6 +105,8 @@ read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv
 }
 read_verilog -library xil_defaultlib E:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/hdl/mb_block_wrapper.v
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
@@ -163,6 +166,9 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1713920707" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_intro_top.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714073174" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_intro_top.dcp">
   <File Type="PA-TCL" Name="mb_usb_hdmi_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="mb_usb_hdmi_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="mb_usb_hdmi_top_reports.tcl"/>
@@ -113,6 +113,28 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/missle.sv">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PPRDIR/../s_bullet/s_bullet.COE">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/s_bullet/s_bullet_example.sv">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../s_bullet/s_bullet_example.sv"/>
+        <Attr Name="ImportTime" Val="1713541016"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
       <Option Name="TopModule" Val="mb_usb_hdmi_top"/>
@@ -168,4 +190,5 @@
   <BlockFileSet Type="BlockSrcs" Name="red_brick_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="tank3_rom"/>
   <BlockFileSet Type="BlockSrcs" Name="frame_buffer_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="bullet_rom"/>
 </GenRun>
