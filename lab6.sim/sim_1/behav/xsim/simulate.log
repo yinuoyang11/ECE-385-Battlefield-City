@@ -1,0 +1,43 @@
+Time resolution is 1 ps
+Block Memory Generator module mb_usb_hdmi_tb.MB.FB.inst.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Block Memory Generator module mb_usb_hdmi_tb.MB.mb_block_i.microblaze_0_local_memory.lmb_bram.inst.\native_mem_mapped_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module mb_usb_hdmi_tb.MB.TE3.tank3_rom.inst.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module mb_usb_hdmi_tb.MB.TE2.tank2_rom.inst.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+ Block Memory Generator module loading initial data...
+ Block Memory Generator data initialization complete.
+Block Memory Generator module mb_usb_hdmi_tb.MB.BK.RB.red_brick_rom.inst.\native_mem_module.blk_mem_gen_v8_4_5_inst  is using a behavioral model for simulation which will not precisely model memory collision behavior.
+Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. mb_usb_hdmi_tb.MB.mb_block_i.spi_usb.U0.no_dual_quad_mode.QSPI_NORMAL.qspi_legacy_md_gen.QSPI_CORE_INTERFACE_I.fifo_exists.RX_FIFO_II.\gnuram_async_fifo.xpm_fifo_base_inst .\gen_sdpram.xpm_memory_base_inst .config_drc
+Time: 1 ps  Iteration: 0  Process: /mb_usb_hdmi_tb/MB/mb_block_i/spi_usb/U0/no_dual_quad_mode/QSPI_NORMAL/qspi_legacy_md_gen/QSPI_CORE_INTERFACE_I/fifo_exists/RX_FIFO_II/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial299_223  Scope: mb_usb_hdmi_tb.MB.mb_block_i.spi_usb.U0.no_dual_quad_mode.QSPI_NORMAL.qspi_legacy_md_gen.QSPI_CORE_INTERFACE_I.fifo_exists.RX_FIFO_II.\gnuram_async_fifo.xpm_fifo_base_inst .\gen_sdpram.xpm_memory_base_inst .config_drc  File: E:/xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 493
+Info: [XPM_MEMORY 20-1] MEMORY_PRIMITIVE (0) instructs Vivado Synthesis to choose the memory primitive type. Depending on their values, other XPM_MEMORY parameters may preclude the choice of certain memory primitive types. Review XPM_MEMORY documentation and parameter values to understand any limitations, or set MEMORY_PRIMITIVE to a different value. mb_usb_hdmi_tb.MB.mb_block_i.spi_usb.U0.no_dual_quad_mode.QSPI_NORMAL.qspi_legacy_md_gen.QSPI_CORE_INTERFACE_I.fifo_exists.TX_FIFO_II.xpm_fifo_instance.xpm_fifo_async_inst.\gnuram_async_fifo.xpm_fifo_base_inst .\gen_sdpram.xpm_memory_base_inst .config_drc
+Time: 1 ps  Iteration: 0  Process: /mb_usb_hdmi_tb/MB/mb_block_i/spi_usb/U0/no_dual_quad_mode/QSPI_NORMAL/qspi_legacy_md_gen/QSPI_CORE_INTERFACE_I/fifo_exists/TX_FIFO_II/xpm_fifo_instance/xpm_fifo_async_inst/gnuram_async_fifo.xpm_fifo_base_inst/gen_sdpram.xpm_memory_base_inst/Initial299_223  Scope: mb_usb_hdmi_tb.MB.mb_block_i.spi_usb.U0.no_dual_quad_mode.QSPI_NORMAL.qspi_legacy_md_gen.QSPI_CORE_INTERFACE_I.fifo_exists.TX_FIFO_II.xpm_fifo_instance.xpm_fifo_async_inst.\gnuram_async_fifo.xpm_fifo_base_inst .\gen_sdpram.xpm_memory_base_inst .config_drc  File: E:/xilinx/Vivado/2022.2/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv Line: 493
+blk_mem_gen_v8_4_5 WARNING: Address 240 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 240 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 241 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 242 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 243 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 244 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 245 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 246 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 247 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 248 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 249 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24a is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24b is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24c is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24d is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24e is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 24f is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 250 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 251 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 252 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 253 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 254 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 255 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 256 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 257 is outside range for A Read
+blk_mem_gen_v8_4_5 WARNING: Address 258 is outside range for A Read
+INFO: xsimkernel Simulation Memory Usage: 41928 KB (Peak: 41928 KB), Simulation CPU Usage: 543311 ms
