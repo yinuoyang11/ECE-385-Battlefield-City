@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714092602" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_intro_top.dcp">
+<GenRun Id="synth_1" LaunchPart="xc7s50csga324-1" LaunchTime="1714095202" LaunchIncrCheckpoint="$PSRCDIR/utils_1/imports/synth_1/mb_intro_top.dcp">
   <File Type="PA-TCL" Name="mb_usb_hdmi_top.tcl"/>
   <File Type="RDS-PROPCONSTRS" Name="mb_usb_hdmi_top_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="mb_usb_hdmi_top_reports.tcl"/>
@@ -18,15 +18,19 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="F:/新建文件夹/VGA_controller.sv">
+    <File Path="$PSRCDIR/sources_1/imports/新建文件夹/VGA_controller.sv">
       <FileInfo>
+        <Attr Name="ImportPath" Val="F:/新建文件夹/VGA_controller.sv"/>
+        <Attr Name="ImportTime" Val="1710557270"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="F:/新建文件夹/ball.sv">
+    <File Path="$PSRCDIR/sources_1/imports/新建文件夹/ball.sv">
       <FileInfo>
+        <Attr Name="ImportPath" Val="F:/新建文件夹/ball.sv"/>
+        <Attr Name="ImportTime" Val="1714092031"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>

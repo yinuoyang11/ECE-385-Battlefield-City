@@ -142,20 +142,6 @@
           <Proxy FileSetName="mb_block_ilmb_bram_if_cntlr_0"/>
         </CompFileExtendedInfo>
       </File>
-      <File Path="F:/新建文件夹/VGA_controller.sv">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
-      <File Path="F:/新建文件夹/ball.sv">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="implementation"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/new/block.sv">
         <FileInfo>
           <Attr Name="UsedIn" Val="synthesis"/>
@@ -254,6 +240,24 @@
         <FileInfo>
           <Attr Name="ImportPath" Val="$PPRDIR/../s_bullet/s_bullet_example.sv"/>
           <Attr Name="ImportTime" Val="1713541016"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/新建文件夹/ball.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="F:/新建文件夹/ball.sv"/>
+          <Attr Name="ImportTime" Val="1714092031"/>
+          <Attr Name="UsedIn" Val="synthesis"/>
+          <Attr Name="UsedIn" Val="implementation"/>
+          <Attr Name="UsedIn" Val="simulation"/>
+        </FileInfo>
+      </File>
+      <File Path="$PSRCDIR/sources_1/imports/新建文件夹/VGA_controller.sv">
+        <FileInfo>
+          <Attr Name="ImportPath" Val="F:/新建文件夹/VGA_controller.sv"/>
+          <Attr Name="ImportTime" Val="1710557270"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>

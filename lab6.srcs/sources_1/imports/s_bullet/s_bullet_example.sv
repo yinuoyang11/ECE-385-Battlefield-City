@@ -15,14 +15,15 @@ logic missle_on_;
 // address into the rom = (x*xDim)/640 + ((y*yDim)/480) * xDim
 // this will stretch out the sprite across the entire screen
 always_comb begin
+    rom_address = 0;
+    missle_on_ = 0;
 	for (int i=0;i<3;i++) begin
 		if ((missle_active_flag[i] == 1) && (DrawX>=(missle_x[i]-1)) && (DrawX<=(missle_x[i]+1)) && (DrawY>=(missle_y[i]-1)) && (DrawY<=(missle_y[i]+1)))begin
 			missle_on_ = 1;
 			rom_address = DrawX-missle_x[i]+1 + (DrawY-missle_y[i]+1)*3;
+			break;
 		end
 		else begin
-			rom_address = 0;
-			missle_on_ = 0;
 	    end
 	end
 end
