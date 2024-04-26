@@ -40,7 +40,7 @@ module mb_usb_hdmi_tb();
         reset <= 1;
         repeat (100) @(posedge clk);
         reset <= 0;
-        #100 MB.keycode0_gpio <= 32'h0000004f;
+        #100 MB.keycode0_gpio <= 32'h0000000B;
     end
     
 endmodule

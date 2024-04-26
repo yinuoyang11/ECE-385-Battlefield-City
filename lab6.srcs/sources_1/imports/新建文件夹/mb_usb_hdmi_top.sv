@@ -224,13 +224,13 @@ module mb_usb_hdmi_top(
             tank0_readdata <= read_data;
         end
         else if (missle1_read_flag[0] == 1) begin
-            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+            if (read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
                 tank1_in[0] <= 1;
             end
             else begin
                 tank1_in[0] <= 0;
             end
-            if (read_data[3:2] == 2'b00) begin
+            if (read_data[4:2] == 3'b000) begin
                 block1_in[0] <= 1;
             end
             else begin
@@ -238,13 +238,13 @@ module mb_usb_hdmi_top(
             end
         end
         else if (missle1_read_flag[1] == 1) begin
-            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+            if (read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
                 tank1_in[1] <= 1;
             end
             else begin
                 tank1_in[1] <= 0;
             end
-            if (read_data[3:2] == 2'b00) begin
+            if (read_data[4:2] == 3'b000) begin
                 block1_in[1] <= 1;
             end
             else begin
@@ -252,13 +252,13 @@ module mb_usb_hdmi_top(
             end
         end
         else if (missle1_read_flag[2] == 1) begin
-            if (read_data[3:2] == 2'b10) begin  // needs to change to enemy tank attr
+            if (read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
                 tank1_in[2] <= 1;
             end
             else begin
                 tank1_in[2] <= 0;
             end
-            if (read_data[3:2] == 2'b00) begin
+            if (read_data[4:2] == 3'b000) begin
                 block1_in[2] <= 1;
             end
             else begin
@@ -280,14 +280,21 @@ module mb_usb_hdmi_top(
             green <= 4'b0111;
             blue <= 4'b0;
         end
-        else if (read_data[3:2] == 2'b11) begin
+        else if (read_data[4:2] == 3'b011) begin
             color_idx <= read_data[1:0];
             palette_idx <= 3'b000;
             red <= 4'b0;
             green <= 4'b0;
             blue <= 4'b0;
         end
-        else if (read_data[3:2] == 2'b01 || read_data[3:2] == 2'b10) begin
+        else if (read_data[4:2] == 3'b100) begin
+            palette_idx <= read_data[4:2];
+            color_idx <= read_data[1:0];
+            red <= fb_red;
+            green <= fb_green;
+            blue <= fb_blue;
+        end
+        else if (read_data[4:2] == 3'b001 || read_data[4:2] == 3'b010) begin
             palette_idx <= read_data[4:2];
             color_idx <= read_data[1:0];
             if (color_idx == 2'b01) begin
@@ -328,7 +335,7 @@ module mb_usb_hdmi_top(
     hex_driver HexB (
         .clk(Clk),
         .reset(reset_ah),
-        .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], keycode0_gpio[3:0]}),
+        .in({keycode0_gpio[15:12], keycode0_gpio[11:8], keycode0_gpio[7:4], {1'b0, missle1_active[2], missle1_active[1], missle1_active[0]}}),
         .hex_seg(hex_segB),
         .hex_grid(hex_gridB)
     );
