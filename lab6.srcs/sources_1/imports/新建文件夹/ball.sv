@@ -60,8 +60,11 @@ module  tank
             if (Ball_Y_Motion == -10'd1) begin
                 direction = 2'b01;
             end
-            else begin
+            else if (Ball_Y_Motion == 10'd1) begin
                 direction = 2'b11;
+            end
+            else begin
+                direction = 2'b01;
             end
         end
         else if (Ball_X_Motion == -10'd1) begin

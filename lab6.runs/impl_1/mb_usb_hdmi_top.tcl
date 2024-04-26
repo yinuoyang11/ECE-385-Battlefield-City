@@ -149,7 +149,7 @@ OPTRACE "add files" START { }
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
-  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc

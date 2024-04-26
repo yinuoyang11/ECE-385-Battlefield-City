@@ -95,7 +95,7 @@ always_ff @(posedge frame_clk or posedge Reset) begin
         end
     end
     else begin
-        if (((prev_key == 8'h0d) && (keycode!=8'h0d))||((prev_key==8'h59)&&(keycode!=8'h59)) && active_count<3) begin
+        if (((prev_key == 8'h0d) && (keycode!=8'h0d)) && active_count<3) begin
             for (int j = 0;j<3;j++) begin
                 if (missles[j].active_flag == 0) begin
                     missles[j].active_flag <= 1;

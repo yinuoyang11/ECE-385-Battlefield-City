@@ -13,7 +13,8 @@ module  tank2
     output logic [9:0]  BallX, 
     output logic [9:0]  BallY,
     output logic [9:0] Ball_X_next_,
-    output logic [9:0] Ball_Y_next_
+    output logic [9:0] Ball_Y_next_,
+    output logic [1:0] direction
 );
     
 
@@ -39,6 +40,26 @@ module  tank2
     logic copy_flag_left_reg;
     logic copy_flag_right_reg;
     assign BallS = 12;
+    always_comb begin
+        if (Ball_X_Motion == 10'd0) begin
+            if (Ball_Y_Motion == -10'd1) begin
+                direction = 2'b01;
+            end
+            else if (Ball_Y_Motion == 10'd1) begin
+                direction = 2'b11;
+            end
+            else begin
+                direction = 2'b01;
+            end
+        end
+        else if (Ball_X_Motion == -10'd1) begin
+            direction = 2'b00;
+        end
+        else begin
+            direction = 2'b10;
+        end
+    end
+    
     always_comb begin
         copy_flag = 0;
         Ball_Y_Motion_next = Ball_Y_Motion; // set default motion to be same as prev clock cycle 

@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Thu Apr 25 20:34:36 2024
+| Date         : Fri Apr 26 15:41:32 2024
 | Host         : yinuo running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mb_usb_hdmi_top_utilization_synth.rpt -pb mb_usb_hdmi_top_utilization_synth.pb
 | Design       : mb_usb_hdmi_top
@@ -31,13 +31,13 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 1562 |     0 |          0 |     32600 |  4.79 |
-|   LUT as Logic          | 1562 |     0 |          0 |     32600 |  4.79 |
+| Slice LUTs*             | 2146 |     0 |          0 |     32600 |  6.58 |
+|   LUT as Logic          | 2146 |     0 |          0 |     32600 |  6.58 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  510 |     0 |          0 |     65200 |  0.78 |
-|   Register as Flip Flop |  353 |     0 |          0 |     65200 |  0.54 |
-|   Register as Latch     |  157 |     0 |          0 |     65200 |  0.24 |
-| F7 Muxes                |    1 |     0 |          0 |     16300 | <0.01 |
+| Slice Registers         |  752 |     0 |          0 |     65200 |  1.15 |
+|   Register as Flip Flop |  475 |     0 |          0 |     65200 |  0.73 |
+|   Register as Latch     |  277 |     0 |          0 |     65200 |  0.42 |
+| F7 Muxes                |    2 |     0 |          0 |     16300 |  0.01 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -57,9 +57,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
 | 37    |          Yes |           - |          Set |
-| 400   |          Yes |           - |        Reset |
+| 633   |          Yes |           - |        Reset |
 | 4     |          Yes |         Set |            - |
-| 69    |          Yes |       Reset |            - |
+| 78    |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -82,8 +82,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------------+------+-------+------------+-----------+-------+
 |    Site Type   | Used | Fixed | Prohibited | Available | Util% |
 +----------------+------+-------+------------+-----------+-------+
-| DSPs           |    8 |     0 |          0 |       120 |  6.67 |
-|   DSP48E1 only |    8 |       |            |           |       |
+| DSPs           |   10 |     0 |          0 |       120 |  8.33 |
+|   DSP48E1 only |   10 |       |            |           |       |
 +----------------+------+-------+------------+-----------+-------+
 
 
@@ -115,7 +115,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    4 |     0 |          0 |        32 | 12.50 |
+| BUFGCTRL   |    7 |     0 |          0 |        32 | 21.88 |
 | BUFIO      |    0 |     0 |          0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |          0 |         5 |  0.00 |
@@ -148,23 +148,23 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  534 |                 LUT |
-| LUT6     |  368 |                 LUT |
-| LUT5     |  338 |                 LUT |
-| LUT4     |  329 |                 LUT |
-| CARRY4   |  266 |          CarryLogic |
-| FDCE     |  243 |        Flop & Latch |
-| LDCE     |  157 |        Flop & Latch |
-| LUT3     |  156 |                 LUT |
-| LUT1     |   80 |                 LUT |
-| FDRE     |   69 |        Flop & Latch |
+| LUT2     |  632 |                 LUT |
+| LUT6     |  549 |                 LUT |
+| LUT5     |  472 |                 LUT |
+| LUT4     |  452 |                 LUT |
+| FDCE     |  356 |        Flop & Latch |
+| CARRY4   |  352 |          CarryLogic |
+| LDCE     |  277 |        Flop & Latch |
+| LUT3     |  216 |                 LUT |
+| LUT1     |  133 |                 LUT |
+| FDRE     |   78 |        Flop & Latch |
 | FDPE     |   37 |        Flop & Latch |
 | OBUF     |   29 |                  IO |
-| DSP48E1  |    8 |    Block Arithmetic |
+| DSP48E1  |   10 |    Block Arithmetic |
+| BUFG     |    7 |               Clock |
 | IBUF     |    5 |                  IO |
 | FDSE     |    4 |        Flop & Latch |
-| BUFG     |    4 |               Clock |
-| MUXF7    |    1 |               MuxFx |
+| MUXF7    |    2 |               MuxFx |
 +----------+------+---------------------+
 
 
@@ -175,6 +175,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 |             Ref Name             | Used |
 +----------------------------------+------+
 | tank3_rom                        |    2 |
+| bullet_rom                       |    2 |
 | red_brick_rom                    |    1 |
 | mb_block_xbar_0                  |    1 |
 | mb_block_rst_clk_wiz_1_100M_0    |    1 |
@@ -196,7 +197,6 @@ Warning! LUT value is adjusted to account for LUT combining.
 | hdmi_tx_0                        |    1 |
 | frame_buffer_0                   |    1 |
 | clk_wiz_0                        |    1 |
-| bullet_rom                       |    1 |
 +----------------------------------+------+
 
 

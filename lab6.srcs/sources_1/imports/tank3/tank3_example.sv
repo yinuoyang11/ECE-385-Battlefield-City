@@ -1,5 +1,6 @@
 module tank3_example (
 	input logic vga_clk,
+    input logic [1:0] direction,
 	input logic [9:0] DrawX, DrawY, tankX, tankY,
 	output logic [1:0] rom_q,
 	output logic tank_on
@@ -19,7 +20,12 @@ logic negedge_vga_clk;
 always_comb begin
     if ((DrawX >= (tankX - 12)) && (DrawX < (tankX + 12)) && (DrawY >= (tankY - 12)) && (DrawY < (tankY + 12))) begin
         tank_on_ = 1'b1;
-        rom_address = (DrawX - tankX + 12) + (DrawY - tankY + 12)*24;
+        case (direction)
+            2'b00:  rom_address = (23 - (DrawY - tankY + 12)) + (DrawX - tankX + 12) * 24;
+            2'b01:  rom_address = (DrawX - tankX + 12) + (DrawY - tankY + 12)*24;
+            2'b10:  rom_address = (DrawY - tankY + 12) + (23 - (DrawX - tankX + 12)) * 24;
+            2'b11:  rom_address = (23 - (DrawX - tankX + 12)) + (23 - (DrawY - tankY + 12)) * 24;
+        endcase
     end
     else begin
         tank_on_ = 1'b0;

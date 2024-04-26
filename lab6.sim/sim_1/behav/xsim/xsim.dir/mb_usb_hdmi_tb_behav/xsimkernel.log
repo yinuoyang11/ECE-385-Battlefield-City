@@ -2,3 +2,6 @@ Running: xsim.dir/mb_usb_hdmi_tb_behav/xsimk.exe -simmode gui -wdb mb_usb_hdmi_t
 Design successfully loaded
 Design Loading Memory Usage: 26008 KB (Peak: 26008 KB)
 Design Loading CPU Usage: 77 ms
+Simulation completed
+Simulation Memory Usage: 42220 KB (Peak: 42220 KB)
+Simulation CPU Usage: 40734 ms
