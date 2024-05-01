@@ -79,7 +79,7 @@ module  tank
 
         Ball_Y_Motion_next = Ball_Y_Motion; // set default motion to be same as prev clock cycle 
         Ball_X_Motion_next = Ball_X_Motion;
-        if (tank1_readdata[3:2] == 2'b00) begin
+        if (tank1_readdata[4:2] == 3'b000) begin
             copy_flag = 1;
         end
         //modify to control ball motion with the keycode

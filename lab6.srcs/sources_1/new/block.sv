@@ -25,10 +25,10 @@ module block(
     output logic block_on,
     output logic [1:0] rom_q
     );
-integer block_width = 200;
-integer block_height = 80;
-integer block_begin_x = 100;
-integer block_begin_y = 160;
+integer block_width = 181;
+integer block_height = 33;
+integer block_begin_x = 149;
+integer block_begin_y = 250;
 logic block_on_;
 logic rom_q_;
 always_comb begin

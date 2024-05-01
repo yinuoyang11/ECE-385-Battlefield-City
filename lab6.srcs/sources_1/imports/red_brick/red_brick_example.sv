@@ -19,7 +19,7 @@ logic negedge_vga_clk;
 // this will stretch out the sprite across the entire screen
 always_comb begin
     if (block_on) begin
-        rom_address = (DrawX - 100) + (DrawY - 160)*200;
+        rom_address = (DrawX - 149) + (DrawY - 250)*181;
     end
     else begin
         rom_address = 0;

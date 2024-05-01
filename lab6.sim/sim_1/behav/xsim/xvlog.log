@@ -26,6 +26,8 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.gen/so
 INFO: [VRFC 10-311] analyzing module frame_buffer_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/sim/bullet_rom.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module bullet_rom
+INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.gen/sources_1/ip/i_rom/sim/i_rom.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i_rom
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.ip_user_files/bd/mb_block/ip/mb_block_xbar_0/sim/mb_block_xbar_0.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mb_block_xbar_0
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.ip_user_files/bd/mb_block/ip/mb_block_xlconcat_0_0/sim/mb_block_xlconcat_0_0.v" into library xil_defaultlib
@@ -45,10 +47,6 @@ INFO: [VRFC 10-311] analyzing module mb_block
 INFO: [VRFC 10-311] analyzing module mb_block_microblaze_0_axi_periph_0
 INFO: [VRFC 10-311] analyzing module microblaze_0_local_memory_imp_G5BFEQ
 INFO: [VRFC 10-311] analyzing module s00_couplers_imp_5YIJ0K
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "F:/新建文件夹/VGA_controller.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module vga_controller
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "F:/新建文件夹/ball.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tank
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module block
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "F:/新建文件夹/hex_driver.sv" into library xil_defaultlib
@@ -70,14 +68,30 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.
 INFO: [VRFC 10-311] analyzing module tank2_example
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module missle
-WARNING: [VRFC 10-543] converting concatenation to assignment pattern [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:55]
-WARNING: [VRFC 10-543] converting concatenation to assignment pattern [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:56]
-WARNING: [VRFC 10-543] converting concatenation to assignment pattern [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:57]
-WARNING: [VRFC 10-543] converting concatenation to assignment pattern [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:58]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module s_bullet_example
-WARNING: [VRFC 10-9336] redeclaration of ANSI port 'rom_q' is not allowed [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:12]
-WARNING: [VRFC 10-3029] 'rom_q' was previously declared without a range [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:12]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/ball.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/VGA_controller.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module vga_controller
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module missle2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/destroy_wall_sm.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module destroy_wall_sm
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_tank.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module enemy_tank
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module enemy_missle
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/timer.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module timer
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/block2.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module block2
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module brick_t_example
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module base
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sources_1/i/i_example.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module i_example
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "E:/xilinx/final_project/lab6.srcs/sim_1/new/mb_usb_hdmi_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mb_usb_hdmi_tb
 INFO: [VRFC 10-2263] Analyzing Verilog file "E:/xilinx/final_project/lab6.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib

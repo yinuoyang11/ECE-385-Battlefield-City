@@ -4,12 +4,11 @@ module s_bullet_example (
 	input logic [9:0] missle_x[3],
 	input logic [9:0] missle_y[3],
 	input logic missle_active_flag[3],
-	output logic rom_q,
+	output logic [1:0] rom_q,
 	output logic missle_on
 );
 
 logic [1:0] rom_address;
-logic [1:0] rom_q;
 logic missle_on_;
 
 // address into the rom = (x*xDim)/640 + ((y*yDim)/480) * xDim

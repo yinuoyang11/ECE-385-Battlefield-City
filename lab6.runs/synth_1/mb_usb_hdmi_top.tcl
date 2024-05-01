@@ -71,6 +71,7 @@ proc create_report { reportName command } {
 }
 OPTRACE "synth_1" START { ROLLUP_AUTO }
 set_param chipscope.maxJobs 5
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 OPTRACE "Creating in-memory project" START { }
@@ -94,6 +95,10 @@ OPTRACE "Adding files" START { }
 add_files E:/xilinx/red_brick/red_brick.COE
 add_files E:/xilinx/tank3/tank3.COE
 add_files E:/xilinx/s_bullet/s_bullet.COE
+add_files E:/xilinx/final_project/lab6.srcs/sources_1/brick_long/brick_long.COE
+add_files E:/xilinx/final_project/lab6.srcs/sources_1/tank3/tank3.COE
+add_files E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t.COE
+add_files E:/xilinx/final_project/lab6.srcs/sources_1/i/i.COE
 read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv
   F:/新建文件夹/hex_driver.sv
@@ -108,6 +113,14 @@ read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/ball.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/VGA_controller.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/destroy_wall_sm.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_tank.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/timer.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/block2.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/i/i_example.sv
 }
 read_verilog -library xil_defaultlib E:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/hdl/mb_block_wrapper.v
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
@@ -170,6 +183,9 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom_ooc.xdc]
+
+read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/i_rom/i_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/i_rom/i_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being

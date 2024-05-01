@@ -30,6 +30,7 @@ module missle(
     input  logic [1:0]  tank_direction, // 00: left, 01: up, 10:right, 11:down
     input  logic        tank_flag[3],
     input  logic        block_flag[3],
+    input  logic        base_flag[3],
     input  logic [7:0]  keycode,
     output logic [9:0]  missle_center_x[3], 
     output logic [9:0]  missle_center_y[3],
@@ -67,9 +68,11 @@ logic [9:0] missle_center_x_next_[3];
 logic [9:0] missle_center_y_next_[3];
 logic copy_flag_reg[3];
 logic [7:0] prev_key;
+
 assign active_missle_flag = active_missle_flag_;
 assign missle_center_x_next = missle_center_x_next_;
 assign missle_center_y_next = missle_center_y_next_;
+
 always_comb begin
     active_missle_flag_ = {0,0,0};
     for (int i =0;i<3;i++) begin
@@ -95,6 +98,7 @@ always_ff @(posedge frame_clk or posedge Reset) begin
         end
     end
     else begin
+//    ((prev_key == 8'h0d) && (keycode!=8'h0d))
         if (((prev_key == 8'h0d) && (keycode!=8'h0d)) && active_count<3) begin
             for (int j = 0;j<3;j++) begin
                 if (missles[j].active_flag == 0) begin
@@ -134,8 +138,13 @@ always_ff @(posedge clk_25MHz) begin
     end
     else begin
         for (int i = 0;i<3;i++) begin
-            if (missle_read_flag[i]==1) begin
-                copy_flag_reg[i] <= (tank_flag[i] | block_flag[i]);
+            if (missles[i].active_flag==0) begin
+                copy_flag_reg[i] <= 0;
+            end
+            else if (missle_read_flag[i]==1 && (tank_flag[i] | block_flag[i] | base_flag[i])) begin
+                copy_flag_reg[i] <= 1;
+            end
+            else begin
             end
         end
     end

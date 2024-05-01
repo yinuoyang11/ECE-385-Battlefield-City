@@ -17,13 +17,13 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="15,361,326.884 ns"></ZoomStartTime>
-      <ZoomEndTime time="15,361,374.153 ns"></ZoomEndTime>
-      <Cursor1Time time="15,361,375.000 ns"></Cursor1Time>
+      <ZoomStartTime time="25,505,288.133 ns"></ZoomStartTime>
+      <ZoomEndTime time="25,505,296.374 ns"></ZoomEndTime>
+      <Cursor1Time time="25,505,295.000 ns"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="310"></NameColumnWidth>
-      <ValueColumnWidth column_width="120"></ValueColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
    </column_width_setting>
    <WVObjectSize size="35" />
    <wvobject fp_name="/mb_usb_hdmi_tb/clk" type="logic">
@@ -53,6 +53,7 @@
    <wvobject fp_name="/mb_usb_hdmi_tb/MB/FB/douta" type="array">
       <obj_property name="ElementShortName">douta[7:0]</obj_property>
       <obj_property name="ObjectShortName">douta[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
    <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_x" type="array">
       <obj_property name="ElementShortName">fb_x[9:0]</obj_property>
@@ -79,8 +80,8 @@
       <obj_property name="ObjectShortName">vde</obj_property>
    </wvobject>
    <wvobject fp_name="/mb_usb_hdmi_tb/MB/palette_idx" type="array">
-      <obj_property name="ElementShortName">palette_idx[1:0]</obj_property>
-      <obj_property name="ObjectShortName">palette_idx[1:0]</obj_property>
+      <obj_property name="ElementShortName">palette_idx[2:0]</obj_property>
+      <obj_property name="ObjectShortName">palette_idx[2:0]</obj_property>
    </wvobject>
    <wvobject fp_name="/mb_usb_hdmi_tb/MB/color_idx" type="array">
       <obj_property name="ElementShortName">color_idx[1:0]</obj_property>
@@ -118,52 +119,53 @@
       <obj_property name="ElementShortName">block_on</obj_property>
       <obj_property name="ObjectShortName">block_on</obj_property>
    </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank_on" type="logic">
-      <obj_property name="ElementShortName">tank_on</obj_property>
-      <obj_property name="ObjectShortName">tank_on</obj_property>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/keycode" type="array">
+      <obj_property name="ElementShortName">keycode[7:0]</obj_property>
+      <obj_property name="ObjectShortName">keycode[7:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/doutb" type="array">
-      <obj_property name="ElementShortName">doutb[7:0]</obj_property>
-      <obj_property name="ObjectShortName">doutb[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank1_readdata" type="array">
-      <obj_property name="ElementShortName">tank1_readdata[7:0]</obj_property>
-      <obj_property name="ObjectShortName">tank1_readdata[7:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/frame_clk" type="logic">
-      <obj_property name="ElementShortName">frame_clk</obj_property>
-      <obj_property name="ObjectShortName">frame_clk</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/copy_flag" type="logic">
-      <obj_property name="ElementShortName">copy_flag</obj_property>
-      <obj_property name="ObjectShortName">copy_flag</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/Ball_Y_next_" type="array">
-      <obj_property name="ElementShortName">Ball_Y_next_[9:0]</obj_property>
-      <obj_property name="ObjectShortName">Ball_Y_next_[9:0]</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/Ball_X_next_" type="array">
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_X_next_" type="array">
       <obj_property name="ElementShortName">Ball_X_next_[9:0]</obj_property>
       <obj_property name="ObjectShortName">Ball_X_next_[9:0]</obj_property>
    </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/copy_flag_left_reg" type="logic">
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_Y_next_" type="array">
+      <obj_property name="ElementShortName">Ball_Y_next_[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Ball_Y_next_[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/direction" type="array">
+      <obj_property name="ElementShortName">direction[1:0]</obj_property>
+      <obj_property name="ObjectShortName">direction[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_X_Motion_next" type="array">
+      <obj_property name="ElementShortName">Ball_X_Motion_next[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Ball_X_Motion_next[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_Y_Motion_next" type="array">
+      <obj_property name="ElementShortName">Ball_Y_Motion_next[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Ball_Y_Motion_next[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_X_Motion" type="array">
+      <obj_property name="ElementShortName">Ball_X_Motion[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Ball_X_Motion[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/Ball_Y_Motion" type="array">
+      <obj_property name="ElementShortName">Ball_Y_Motion[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Ball_Y_Motion[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/copy_flag" type="logic">
+      <obj_property name="ElementShortName">copy_flag</obj_property>
+      <obj_property name="ObjectShortName">copy_flag</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/copy_flag_left_reg" type="logic">
       <obj_property name="ElementShortName">copy_flag_left_reg</obj_property>
       <obj_property name="ObjectShortName">copy_flag_left_reg</obj_property>
    </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/copy_flag_right_reg" type="logic">
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/copy_flag_right_reg" type="logic">
       <obj_property name="ElementShortName">copy_flag_right_reg</obj_property>
       <obj_property name="ObjectShortName">copy_flag_right_reg</obj_property>
    </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK2/flag_toggle" type="logic">
-      <obj_property name="ElementShortName">flag_toggle</obj_property>
-      <obj_property name="ObjectShortName">flag_toggle</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank1_readleft_flag" type="logic">
-      <obj_property name="ElementShortName">tank1_readleft_flag</obj_property>
-      <obj_property name="ObjectShortName">tank1_readleft_flag</obj_property>
-   </wvobject>
-   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank1_readright_flag" type="logic">
-      <obj_property name="ElementShortName">tank1_readright_flag</obj_property>
-      <obj_property name="ObjectShortName">tank1_readright_flag</obj_property>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/TK/tank1_readdata" type="array">
+      <obj_property name="ElementShortName">tank1_readdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tank1_readdata[7:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
    </wvobject>
 </wave_config>

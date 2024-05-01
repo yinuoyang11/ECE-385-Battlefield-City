@@ -115,6 +115,7 @@ proc step_failed { step } {
 OPTRACE "impl_1" END { }
 }
 
+set_msg_config -id {Common 17-41} -limit 10000000
 set_msg_config -id {HDL 9-1061} -limit 100000
 set_msg_config -id {HDL 9-1654} -limit 100000
 
@@ -150,6 +151,7 @@ OPTRACE "add files" START { }
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/tank3_rom/tank3_rom.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
+  read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/i_rom/i_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc

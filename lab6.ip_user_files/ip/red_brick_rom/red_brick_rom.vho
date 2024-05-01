@@ -54,7 +54,7 @@
 COMPONENT red_brick_rom
   PORT (
     clka : IN STD_LOGIC;
-    addra : IN STD_LOGIC_VECTOR(13 DOWNTO 0);
+    addra : IN STD_LOGIC_VECTOR(12 DOWNTO 0);
     douta : OUT STD_LOGIC_VECTOR(1 DOWNTO 0) 
   );
 END COMPONENT;

@@ -10,7 +10,6 @@
     ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 
 source mb_usb_hdmi_top.tcl -notrace
-create_project: Time (s): cpu = 00:00:03 ; elapsed = 00:00:07 . Memory (MB): peak = 373.934 ; gain = 60.738
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'f:/hdmi_tx_1.0'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'E:/xilinx/Vivado/2022.2/data/ip'.
@@ -26,21 +25,36 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 6156
+INFO: [Synth 8-7075] Helper process launched with PID 40032
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
-WARNING: [Synth 8-11121] redeclaration of ANSI port 'rom_q' is not allowed [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:12]
-WARNING: [Synth 8-8984] 'rom_q' was previously declared without a range [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:12]
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:06 . Memory (MB): peak = 1220.191 ; gain = 409.141
+Starting RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:04 . Memory (MB): peak = 1220.395 ; gain = 407.664
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-6157] synthesizing module 'mb_usb_hdmi_top' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:16]
-INFO: [Synth 8-6157] synthesizing module 'frame_buffer_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/frame_buffer_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'frame_buffer_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/frame_buffer_0_stub.v:5]
-WARNING: [Synth 8-689] width (19) of port connection 'addrb' does not match port width (18) of module 'frame_buffer_0' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:243]
-WARNING: [Synth 8-7071] port 'dina' of module 'frame_buffer_0' is unconnected for instance 'FB' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:236]
-WARNING: [Synth 8-7023] instance 'FB' of module 'frame_buffer_0' has 12 connections declared, but only 11 given [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:236]
+INFO: [Synth 8-6157] synthesizing module 'enemy_tank' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_tank.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'enemy_tank' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_tank.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'enemy_missle' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'enemy_missle' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'tank3_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'tank3_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/tank3_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'tank3_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/tank3_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'tank3_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv:1]
+INFO: [Synth 8-6157] synthesizing module 's_bullet_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'bullet_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/bullet_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'bullet_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/bullet_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 's_bullet_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:1]
+WARNING: [Synth 8-689] width (1) of port connection 'rom_q' does not match port width (2) of module 's_bullet_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:234]
+INFO: [Synth 8-6157] synthesizing module 'destroy_wall_sm' [E:/xilinx/final_project/lab6.srcs/sources_1/new/destroy_wall_sm.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'destroy_wall_sm' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/destroy_wall_sm.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'frame_buffer_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/frame_buffer_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'frame_buffer_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/frame_buffer_0_stub.v:5]
+WARNING: [Synth 8-689] width (19) of port connection 'addrb' does not match port width (18) of module 'frame_buffer_0' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:871]
+WARNING: [Synth 8-7071] port 'dina' of module 'frame_buffer_0' is unconnected for instance 'FB' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:864]
+WARNING: [Synth 8-7023] instance 'FB' of module 'frame_buffer_0' has 12 connections declared, but only 11 given [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:864]
 INFO: [Synth 8-6157] synthesizing module 'palette' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_palette.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'palette' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_palette.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'timer' [E:/xilinx/final_project/lab6.srcs/sources_1/new/timer.sv:23]
+INFO: [Synth 8-6155] done synthesizing module 'timer' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/timer.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'hex_driver' [F:/新建文件夹/hex_driver.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'nibble_to_hex' [F:/新建文件夹/hex_driver.sv:11]
 INFO: [Synth 8-6155] done synthesizing module 'nibble_to_hex' (0#1) [F:/新建文件夹/hex_driver.sv:11]
@@ -52,22 +66,22 @@ INFO: [Synth 8-6157] synthesizing module 'nibble_to_hex' [F:/新建文件夹/hex_driv
 INFO: [Synth 8-6155] done synthesizing module 'nibble_to_hex' (0#1) [F:/新建文件夹/hex_driver.sv:11]
 INFO: [Synth 8-6155] done synthesizing module 'hex_driver' (0#1) [F:/新建文件夹/hex_driver.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'mb_block' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:1374]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_uartlite_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_uartlite_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_uartlite_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_clk_wiz_1_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_clk_wiz_1_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_clk_wiz_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_2' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_2_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_2' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_2_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_1' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_1_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_1' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_1_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_gpio_3_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_mdm_1_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_mdm_1_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_mdm_1_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_microblaze_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_microblaze_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_microblaze_0_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_microblaze_0_axi_intc_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_microblaze_0_axi_intc_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_microblaze_0_axi_intc_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_microblaze_0_axi_intc_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_uartlite_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_uartlite_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_uartlite_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_clk_wiz_1_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_clk_wiz_1_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_clk_wiz_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_2' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_2_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_2' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_2_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_1' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_1_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_1' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_1_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_gpio_3_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_gpio_3_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_gpio_3_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_mdm_1_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_mdm_1_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_mdm_1_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_microblaze_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_microblaze_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_microblaze_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_microblaze_0_axi_intc_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_microblaze_0_axi_intc_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_microblaze_0_axi_intc_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_microblaze_0_axi_intc_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'mb_block_microblaze_0_axi_periph_0' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2070]
 INFO: [Synth 8-6157] synthesizing module 'm00_couplers_imp_1TK4492' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:12]
 INFO: [Synth 8-6155] done synthesizing module 'm00_couplers_imp_1TK4492' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:12]
@@ -91,8 +105,8 @@ INFO: [Synth 8-6157] synthesizing module 'm09_couplers_imp_5MFQLN' [e:/xilinx/fi
 INFO: [Synth 8-6155] done synthesizing module 'm09_couplers_imp_5MFQLN' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:1242]
 INFO: [Synth 8-6157] synthesizing module 's00_couplers_imp_5YIJ0K' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3824]
 INFO: [Synth 8-6155] done synthesizing module 's00_couplers_imp_5YIJ0K' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3824]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_xbar_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_xbar_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_xbar_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_xbar_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_xbar_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_xbar_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_xbar_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_xbar_0_stub.v:5]
 WARNING: [Synth 8-689] width (15) of port connection 'm_axi_arprot' does not match port width (30) of module 'mb_block_xbar_0' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3551]
 WARNING: [Synth 8-689] width (15) of port connection 'm_axi_awprot' does not match port width (30) of module 'mb_block_xbar_0' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3555]
 INFO: [Synth 8-6155] done synthesizing module 'mb_block_microblaze_0_axi_periph_0' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2070]
@@ -131,20 +145,20 @@ WARNING: [Synth 8-7071] port 'M04_AXI_wstrb' of module 'mb_block_microblaze_0_ax
 WARNING: [Synth 8-7071] port 'M04_AXI_wvalid' of module 'mb_block_microblaze_0_axi_periph_0' is unconnected for instance 'microblaze_0_axi_periph' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:1791]
 WARNING: [Synth 8-7023] instance 'microblaze_0_axi_periph' of module 'mb_block_microblaze_0_axi_periph_0' has 219 connections declared, but only 186 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:1791]
 INFO: [Synth 8-6157] synthesizing module 'microblaze_0_local_memory_imp_G5BFEQ' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3590]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_dlmb_bram_if_cntlr_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_dlmb_bram_if_cntlr_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_dlmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_dlmb_v10_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_dlmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_dlmb_v10_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_dlmb_bram_if_cntlr_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_dlmb_bram_if_cntlr_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_dlmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_dlmb_v10_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_dlmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_dlmb_v10_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_dlmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'mb_block_dlmb_v10_0' is unconnected for instance 'dlmb_v10' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3736]
 WARNING: [Synth 8-7023] instance 'dlmb_v10' of module 'mb_block_dlmb_v10_0' has 25 connections declared, but only 24 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3736]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_ilmb_bram_if_cntlr_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_ilmb_bram_if_cntlr_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_ilmb_bram_if_cntlr_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_ilmb_v10_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_ilmb_v10_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_ilmb_v10_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_ilmb_bram_if_cntlr_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_ilmb_bram_if_cntlr_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_ilmb_bram_if_cntlr_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_ilmb_v10_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_ilmb_v10_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_ilmb_v10_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_ilmb_v10_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'LMB_Rst' of module 'mb_block_ilmb_v10_0' is unconnected for instance 'ilmb_v10' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3782]
 WARNING: [Synth 8-7023] instance 'ilmb_v10' of module 'mb_block_ilmb_v10_0' has 25 connections declared, but only 24 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3782]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_lmb_bram_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_lmb_bram_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_lmb_bram_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_lmb_bram_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_lmb_bram_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_lmb_bram_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_lmb_bram_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'rsta_busy' of module 'mb_block_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3807]
 WARNING: [Synth 8-7071] port 'rstb_busy' of module 'mb_block_lmb_bram_0' is unconnected for instance 'lmb_bram' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3807]
 WARNING: [Synth 8-7023] instance 'lmb_bram' of module 'mb_block_lmb_bram_0' has 16 connections declared, but only 14 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:3807]
@@ -153,99 +167,123 @@ INFO: [Synth 8-6157] synthesizing module 'mb_block_xlconcat_0_0' [e:/xilinx/fina
 INFO: [Synth 8-6157] synthesizing module 'xlconcat_v2_1_4_xlconcat' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'xlconcat_v2_1_4_xlconcat' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ipshared/4b67/hdl/xlconcat_v2_1_vl_rfs.v:14]
 INFO: [Synth 8-6155] done synthesizing module 'mb_block_xlconcat_0_0' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_xlconcat_0_0/synth/mb_block_xlconcat_0_0.v:53]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_rst_clk_wiz_1_100M_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_rst_clk_wiz_1_100M_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_rst_clk_wiz_1_100M_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_rst_clk_wiz_1_100M_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_rst_clk_wiz_1_100M_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_rst_clk_wiz_1_100M_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_rst_clk_wiz_1_100M_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'peripheral_reset' of module 'mb_block_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2006]
 WARNING: [Synth 8-7071] port 'interconnect_aresetn' of module 'mb_block_rst_clk_wiz_1_100M_0' is unconnected for instance 'rst_clk_wiz_1_100M' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2006]
 WARNING: [Synth 8-7023] instance 'rst_clk_wiz_1_100M' of module 'mb_block_rst_clk_wiz_1_100M_0' has 10 connections declared, but only 8 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2006]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_quad_spi_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_quad_spi_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_quad_spi_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_quad_spi_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_quad_spi_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_quad_spi_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_quad_spi_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_quad_spi_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'io0_t' of module 'mb_block_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
 WARNING: [Synth 8-7071] port 'io1_o' of module 'mb_block_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
 WARNING: [Synth 8-7071] port 'io1_t' of module 'mb_block_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
 WARNING: [Synth 8-7071] port 'sck_t' of module 'mb_block_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
 WARNING: [Synth 8-7071] port 'ss_t' of module 'mb_block_axi_quad_spi_0_0' is unconnected for instance 'spi_usb' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
 WARNING: [Synth 8-7023] instance 'spi_usb' of module 'mb_block_axi_quad_spi_0_0' has 33 connections declared, but only 28 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2015]
-INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_timer_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_timer_0_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_timer_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/mb_block_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'mb_block_axi_timer_0_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_timer_0_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'mb_block_axi_timer_0_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/mb_block_axi_timer_0_0_stub.v:5]
 WARNING: [Synth 8-7071] port 'generateout0' of module 'mb_block_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2044]
 WARNING: [Synth 8-7071] port 'generateout1' of module 'mb_block_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2044]
 WARNING: [Synth 8-7071] port 'pwm0' of module 'mb_block_axi_timer_0_0' is unconnected for instance 'timer_usb_axi' [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2044]
 WARNING: [Synth 8-7023] instance 'timer_usb_axi' of module 'mb_block_axi_timer_0_0' has 26 connections declared, but only 23 given [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:2044]
 INFO: [Synth 8-6155] done synthesizing module 'mb_block' (0#1) [e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/synth/mb_block.v:1374]
-INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/clk_wiz_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'clk_wiz_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/clk_wiz_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'clk_wiz_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/clk_wiz_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'vga_controller' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/VGA_controller.sv:26]
 INFO: [Synth 8-6155] done synthesizing module 'vga_controller' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/VGA_controller.sv:26]
-WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:443]
-WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:443]
-INFO: [Synth 8-6157] synthesizing module 'hdmi_tx_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/hdmi_tx_0_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/hdmi_tx_0_stub.v:5]
-INFO: [Synth 8-6157] synthesizing module 'tank3_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'tank3_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/tank3_rom_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'tank3_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/tank3_rom_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'tank3_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/tank3/tank3_example.sv:1]
+WARNING: [Synth 8-7071] port 'sync' of module 'vga_controller' is unconnected for instance 'vga' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:932]
+WARNING: [Synth 8-7023] instance 'vga' of module 'vga_controller' has 8 connections declared, but only 7 given [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:932]
+INFO: [Synth 8-6157] synthesizing module 'hdmi_tx_0' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/hdmi_tx_0_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'hdmi_tx_0' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/hdmi_tx_0_stub.v:5]
 INFO: [Synth 8-6157] synthesizing module 'tank2_example' [E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2_example.sv:1]
 INFO: [Synth 8-6155] done synthesizing module 'tank2_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2_example.sv:1]
 INFO: [Synth 8-6157] synthesizing module 'tank' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/ball.sv:18]
 INFO: [Synth 8-6155] done synthesizing module 'tank' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/ball.sv:18]
 INFO: [Synth 8-6157] synthesizing module 'missle' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'missle' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:23]
-INFO: [Synth 8-6157] synthesizing module 's_bullet_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'bullet_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/bullet_rom_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'bullet_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/bullet_rom_stub.v:5]
-WARNING: [Synth 8-689] width (1) of port connection 'douta' does not match port width (2) of module 'bullet_rom' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:35]
-INFO: [Synth 8-6155] done synthesizing module 's_bullet_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/s_bullet/s_bullet_example.sv:1]
-WARNING: [Synth 8-689] width (2) of port connection 'rom_q' does not match port width (1) of module 's_bullet_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:543]
-WARNING: [Synth 8-689] width (2) of port connection 'rom_q' does not match port width (1) of module 's_bullet_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:553]
 INFO: [Synth 8-6157] synthesizing module 'tank2' [E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2.sv:4]
 INFO: [Synth 8-6155] done synthesizing module 'tank2' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/tank2.sv:4]
 INFO: [Synth 8-6157] synthesizing module 'missle2' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:23]
 INFO: [Synth 8-6155] done synthesizing module 'missle2' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:23]
 INFO: [Synth 8-6157] synthesizing module 'block' [E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv:21]
 INFO: [Synth 8-6157] synthesizing module 'red_brick_example' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv:1]
-INFO: [Synth 8-6157] synthesizing module 'red_brick_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/red_brick_rom_stub.v:5]
-INFO: [Synth 8-6155] done synthesizing module 'red_brick_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-2904-yinuo/realtime/red_brick_rom_stub.v:5]
+INFO: [Synth 8-6157] synthesizing module 'red_brick_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/red_brick_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'red_brick_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/red_brick_rom_stub.v:5]
+WARNING: [Synth 8-689] width (14) of port connection 'addra' does not match port width (13) of module 'red_brick_rom' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv:43]
 INFO: [Synth 8-6155] done synthesizing module 'red_brick_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/red_brick/red_brick_example.sv:1]
 WARNING: [Synth 8-689] width (1) of port connection 'rom_q' does not match port width (2) of module 'red_brick_example' [E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv:47]
 INFO: [Synth 8-6155] done synthesizing module 'block' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'block2' [E:/xilinx/final_project/lab6.srcs/sources_1/new/block2.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'brick_t_example' [E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv:1]
+WARNING: [Synth 8-689] width (14) of port connection 'addra' does not match port width (13) of module 'red_brick_rom' [E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv:26]
+INFO: [Synth 8-6155] done synthesizing module 'brick_t_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv:1]
+WARNING: [Synth 8-689] width (1) of port connection 'rom_q' does not match port width (2) of module 'brick_t_example' [E:/xilinx/final_project/lab6.srcs/sources_1/new/block2.sv:47]
+INFO: [Synth 8-6155] done synthesizing module 'block2' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/block2.sv:21]
+INFO: [Synth 8-6157] synthesizing module 'base' [E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv:23]
+INFO: [Synth 8-6157] synthesizing module 'i_example' [E:/xilinx/final_project/lab6.srcs/sources_1/i/i_example.sv:1]
+INFO: [Synth 8-6157] synthesizing module 'i_rom' [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/i_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'i_rom' (0#1) [E:/xilinx/final_project/lab6.runs/synth_1/.Xil/Vivado-37132-yinuo/realtime/i_rom_stub.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'i_example' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/i/i_example.sv:1]
+WARNING: [Synth 8-689] width (1) of port connection 'rom_q' does not match port width (2) of module 'i_example' [E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv:74]
+INFO: [Synth 8-6155] done synthesizing module 'base' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv:23]
+WARNING: [Synth 8-689] width (3) of port connection 'base_hp' does not match port width (4) of module 'base' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:1100]
 INFO: [Synth 8-6155] done synthesizing module 'mb_usb_hdmi_top' (0#1) [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:16]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-7137] Register write_addr_reg in module mb_usb_hdmi_top has both Set and reset with same priority. This may cause simulation mismatches. Consider rewriting code  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:116]
-WARNING: [Synth 8-87] always_comb on 'read_addr_reg' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:146]
+WARNING: [Synth 8-6014] Unused sequential element prev_key_reg was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:90]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_x_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[0]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[1]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-87] always_comb on 'missle_center_y_next__reg[2]' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-6014] Unused sequential element base1_in_reg[0] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:349]
+WARNING: [Synth 8-6014] Unused sequential element base1_in_reg[1] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:349]
+WARNING: [Synth 8-6014] Unused sequential element base1_in_reg[2] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:349]
+WARNING: [Synth 8-6014] Unused sequential element base2_in_reg[0] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:415]
+WARNING: [Synth 8-6014] Unused sequential element base2_in_reg[1] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:415]
+WARNING: [Synth 8-6014] Unused sequential element base2_in_reg[2] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:415]
+WARNING: [Synth 8-6014] Unused sequential element em_base1_in_reg[0] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:482]
+WARNING: [Synth 8-6014] Unused sequential element em_base1_in_reg[1] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:482]
+WARNING: [Synth 8-6014] Unused sequential element em_base1_in_reg[2] was removed.  [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:482]
+WARNING: [Synth 8-87] always_comb on 'read_addr_reg' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:629]
+WARNING: [Synth 8-87] always_comb on 'check_flag3_reg' did not result in combinational logic [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:240]
 WARNING: [Synth 8-7129] Port tank1_readdata[7] in module tank2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[6] in module tank2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[5] in module tank2 is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tank1_readdata[4] in module tank2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[1] in module tank2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[0] in module tank2 is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[7] in module tank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[6] in module tank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[5] in module tank is either unconnected or has no load
-WARNING: [Synth 8-7129] Port tank1_readdata[4] in module tank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[1] in module tank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port tank1_readdata[0] in module tank is either unconnected or has no load
 WARNING: [Synth 8-7129] Port In4[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
@@ -336,20 +374,22 @@ WARNING: [Synth 8-7129] Port In88[0] in module xlconcat_v2_1_4_xlconcat is eithe
 WARNING: [Synth 8-7129] Port In89[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 WARNING: [Synth 8-7129] Port In90[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 WARNING: [Synth 8-7129] Port In91[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In92[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
+WARNING: [Synth 8-7129] Port In93[0] in module xlconcat_v2_1_4_xlconcat is either unconnected or has no load
 INFO: [Common 17-14] Message 'Synth 8-7129' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1341.539 ; gain = 530.488
+Finished RTL Elaboration : Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1361.246 ; gain = 548.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1341.539 ; gain = 530.488
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1361.246 ; gain = 548.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1341.539 ; gain = 530.488
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1361.246 ; gain = 548.516
 ---------------------------------------------------------------------------------
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.107 . Memory (MB): peak = 1341.539 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.073 . Memory (MB): peak = 1361.246 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
@@ -395,16 +435,24 @@ Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/hdmi_tx_0/hdmi_t
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/hdmi_tx_0/hdmi_tx_0/hdmi_tx_0_in_context.xdc] for cell 'vga_to_hdmi'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom/red_brick_rom_in_context.xdc] for cell 'BK/RB/red_brick_rom'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom/red_brick_rom_in_context.xdc] for cell 'BK/RB/red_brick_rom'
+Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom/red_brick_rom_in_context.xdc] for cell 'BK2/BT/brick_t_rom'
+Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/red_brick_rom/red_brick_rom/red_brick_rom_in_context.xdc] for cell 'BK2/BT/brick_t_rom'
+Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'ETE/tank3_rom'
+Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'ETE/tank3_rom'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'TE3/tank3_rom'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'TE3/tank3_rom'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'TE2/tank2_rom'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/tank3_rom/tank3_rom/tank3_rom_in_context.xdc] for cell 'TE2/tank2_rom'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0/frame_buffer_0_in_context.xdc] for cell 'FB'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/frame_buffer_0/frame_buffer_0/frame_buffer_0_in_context.xdc] for cell 'FB'
+Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'ESBE/s_bullet_rom'
+Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'ESBE/s_bullet_rom'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'BE1/s_bullet_rom'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'BE1/s_bullet_rom'
 Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'BE2/s_bullet_rom'
 Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/bullet_rom/bullet_rom/bullet_rom_in_context.xdc] for cell 'BE2/s_bullet_rom'
+Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/i_rom/i_rom/i_rom_in_context.xdc] for cell 'BS/I/i_rom'
+Finished Parsing XDC File [e:/xilinx/final_project/lab6.gen/sources_1/ip/i_rom/i_rom/i_rom_in_context.xdc] for cell 'BS/I/i_rom'
 Parsing XDC File [F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc]
 CRITICAL WARNING: [Constraints 18-1056] Clock 'clk_100' completely overrides clock 'Clk'.
 New: create_clock -period 10.000 -name clk_100 -waveform {0.000 5.000} [get_ports Clk], [F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc:1]
@@ -417,15 +465,19 @@ Parsing XDC File [E:/xilinx/final_project/lab6.runs/synth_1/dont_touch.xdc]
 Finished Parsing XDC File [E:/xilinx/final_project/lab6.runs/synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1448.512 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1466.227 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.019 . Memory (MB): peak = 1448.512 ; gain = 0.000
-WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'FB' at clock pin 'clkb' is different from the actual clock period '10.000', this can lead to different synthesis results.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.015 . Memory (MB): peak = 1466.227 ; gain = 0.000
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'FB' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BE1/s_bullet_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BE2/s_bullet_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BK/RB/red_brick_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BK2/BT/brick_t_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'BS/I/i_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'ESBE/s_bullet_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
+WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'ETE/tank3_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'TE2/tank2_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'TE3/tank3_rom' at clock pin 'clka' is different from the actual clock period '10.000', this can lead to different synthesis results.
 WARNING: [Timing 38-316] Clock period '20.000' specified during out-of-context synthesis of instance 'mb_block_i/spi_usb' at clock pin 'ext_spi_clk' is different from the actual clock period '10.000', this can lead to different synthesis results.
@@ -434,14 +486,14 @@ INFO: [Designutils 20-5440] No compile time benefit to using incremental synthes
 INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
 INFO: [Synth 8-11241] undeclared symbol 'REGCCE', assumed default net type 'wire' [E:/xilinx/Vivado/2022.2/data/verilog/src/unimacro/BRAM_SINGLE_MACRO.v:2170]
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7s50csga324-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
@@ -486,83 +538,115 @@ Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/spi_usb. (constraint f
 Applied set_property KEEP_HIERARCHY = SOFT for mb_block_i/microblaze_0_xlconcat. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for clk_wiz. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for vga_to_hdmi. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for BK2/BT/brick_t_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for BK/RB/red_brick_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for TE2/tank2_rom. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ETE/tank3_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for TE3/tank3_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for FB. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for ESBE/s_bullet_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for BE1/s_bullet_rom. (constraint file  auto generated constraint).
 Applied set_property KEEP_HIERARCHY = SOFT for BE2/s_bullet_rom. (constraint file  auto generated constraint).
+Applied set_property KEEP_HIERARCHY = SOFT for BS/I/i_rom. (constraint file  auto generated constraint).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:20 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:03 ; elapsed = 00:00:12 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:78]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:79]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:71]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:72]
-WARNING: [Synth 8-327] inferring latch for variable 'read_addr_reg' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:146]
+DSP Debug: swapped A/B pins for adder 0000027424581EE0
+DSP Debug: swapped A/B pins for adder 000002742457ECA0
+DSP Debug: swapped A/B pins for adder 000002742457D200
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/enemy_missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:82]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:80]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:81]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_x_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:73]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[0]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[1]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'missle_center_y_next__reg[2]' [E:/xilinx/final_project/lab6.srcs/sources_1/new/missle2.sv:74]
+WARNING: [Synth 8-327] inferring latch for variable 'read_addr_reg' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:629]
+WARNING: [Synth 8-327] inferring latch for variable 'check_flag3_reg' [E:/xilinx/final_project/lab6.srcs/sources_1/imports/新建文件夹/mb_usb_hdmi_top.sv:240]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:04 ; elapsed = 00:00:13 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
 +---Adders : 
-	   2 Input   32 Bit       Adders := 20    
+	   2 Input   32 Bit       Adders := 30    
+	   3 Input   32 Bit       Adders := 6     
 	   2 Input   19 Bit       Adders := 1     
-	   3 Input   18 Bit       Adders := 8     
-	   3 Input   12 Bit       Adders := 4     
-	   2 Input   11 Bit       Adders := 14    
-	   2 Input   10 Bit       Adders := 32    
-	   3 Input   10 Bit       Adders := 4     
-	   3 Input    2 Bit       Adders := 6     
+	   3 Input   12 Bit       Adders := 6     
+	   2 Input   11 Bit       Adders := 23    
+	   3 Input   11 Bit       Adders := 6     
+	   2 Input   10 Bit       Adders := 48    
+	   3 Input   10 Bit       Adders := 6     
+	   2 Input    8 Bit       Adders := 3     
+	   2 Input    4 Bit       Adders := 1     
+	   3 Input    2 Bit       Adders := 9     
 +---Registers : 
-	               32 Bit    Registers := 2     
-	               19 Bit    Registers := 2     
-	               10 Bit    Registers := 34    
-	                8 Bit    Registers := 5     
-	                4 Bit    Registers := 3     
+	               32 Bit    Registers := 3     
+	               19 Bit    Registers := 5     
+	               10 Bit    Registers := 50    
+	                8 Bit    Registers := 12    
+	                4 Bit    Registers := 4     
 	                3 Bit    Registers := 1     
 	                2 Bit    Registers := 1     
-	                1 Bit    Registers := 30    
+	                1 Bit    Registers := 54    
 +---Muxes : 
-	   2 Input   32 Bit        Muxes := 12    
-	   2 Input   19 Bit        Muxes := 3     
-	   2 Input   14 Bit        Muxes := 1     
-	   5 Input   12 Bit        Muxes := 3     
-	   8 Input   12 Bit        Muxes := 1     
-	   4 Input   10 Bit        Muxes := 10    
-	   2 Input   10 Bit        Muxes := 48    
+	   2 Input   32 Bit        Muxes := 18    
+	   2 Input   19 Bit        Muxes := 6     
+	   2 Input   18 Bit        Muxes := 19    
+	   2 Input   14 Bit        Muxes := 2     
+	   7 Input   12 Bit        Muxes := 3     
+	  10 Input   12 Bit        Muxes := 1     
+	   2 Input   10 Bit        Muxes := 90    
+	   4 Input   10 Bit        Muxes := 15    
+	   3 Input   10 Bit        Muxes := 6     
 	   5 Input   10 Bit        Muxes := 6     
-	   4 Input    8 Bit        Muxes := 2     
-	   2 Input    8 Bit        Muxes := 4     
+	   4 Input    8 Bit        Muxes := 5     
+	   3 Input    8 Bit        Muxes := 3     
+	   2 Input    8 Bit        Muxes := 8     
 	   5 Input    4 Bit        Muxes := 2     
-	   2 Input    4 Bit        Muxes := 9     
-	   3 Input    4 Bit        Muxes := 1     
-	   3 Input    2 Bit        Muxes := 4     
-	   2 Input    2 Bit        Muxes := 6     
-	   2 Input    1 Bit        Muxes := 65    
-	  11 Input    1 Bit        Muxes := 2     
+	   2 Input    4 Bit        Muxes := 12    
+	   3 Input    4 Bit        Muxes := 3     
+	   2 Input    3 Bit        Muxes := 3     
+	   3 Input    3 Bit        Muxes := 1     
+	   3 Input    2 Bit        Muxes := 7     
+	   2 Input    2 Bit        Muxes := 9     
+	  12 Input    2 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 139   
+	   3 Input    1 Bit        Muxes := 7     
+	  17 Input    1 Bit        Muxes := 1     
+	   9 Input    1 Bit        Muxes := 1     
+	  15 Input    1 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -589,6 +673,15 @@ DSP Report: operator p_0_out is absorbed into DSP p_1_out.
 DSP Report: Generating DSP rom_address0, operation Mode is: (C:0x17)+A*(B:0x18).
 DSP Report: operator rom_address0 is absorbed into DSP rom_address0.
 DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
+DSP Report: Generating DSP reload_addr_3, operation Mode is: (D+(A:0x3ffffffb))*(B:0x1e0).
+DSP Report: operator reload_addr_3 is absorbed into DSP reload_addr_3.
+DSP Report: operator reload_addr_4 is absorbed into DSP reload_addr_3.
+DSP Report: Generating DSP reload_addr_3, operation Mode is: (D+(A:0x3ffffffb))*(B:0x1e0).
+DSP Report: operator reload_addr_3 is absorbed into DSP reload_addr_3.
+DSP Report: operator reload_addr_4 is absorbed into DSP reload_addr_3.
+DSP Report: Generating DSP reload_addr_3, operation Mode is: (D+(A:0x3ffffffb))*(B:0x1e0).
+DSP Report: operator reload_addr_3 is absorbed into DSP reload_addr_3.
+DSP Report: operator reload_addr_4 is absorbed into DSP reload_addr_3.
 DSP Report: Generating DSP rom_address0, operation Mode is: (C:0x17)+((D:0x18)+A)*(B:0x18).
 DSP Report: operator rom_address0 is absorbed into DSP rom_address0.
 DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
@@ -599,37 +692,170 @@ DSP Report: operator p_0_out is absorbed into DSP p_1_out.
 DSP Report: Generating DSP rom_address0, operation Mode is: (C:0x17)+A*(B:0x18).
 DSP Report: operator rom_address0 is absorbed into DSP rom_address0.
 DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
-DSP Report: Generating DSP RB/rom_address1, operation Mode is: (D+(A:0x3fffff60))*(B:0xc8).
+DSP Report: Generating DSP rom_address0, operation Mode is: (C:0x17)+((D:0x18)+A)*(B:0x18).
+DSP Report: operator rom_address0 is absorbed into DSP rom_address0.
+DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
+DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
+DSP Report: Generating DSP p_1_out, operation Mode is: C+A*(B:0x18).
+DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: operator p_0_out is absorbed into DSP p_1_out.
+DSP Report: Generating DSP rom_address0, operation Mode is: (C:0x17)+A*(B:0x18).
+DSP Report: operator rom_address0 is absorbed into DSP rom_address0.
+DSP Report: operator rom_address1 is absorbed into DSP rom_address0.
+DSP Report: Generating DSP RB/rom_address1, operation Mode is: (D+(A:0x3fffff06))*(B:0xb5).
 DSP Report: operator RB/rom_address1 is absorbed into DSP RB/rom_address1.
 DSP Report: operator RB/rom_address2 is absorbed into DSP RB/rom_address1.
-DSP Report: Generating DSP RB/rom_address0, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffff9c).
+DSP Report: Generating DSP RB/rom_address0, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffff6b).
 DSP Report: operator RB/rom_address0 is absorbed into DSP RB/rom_address0.
-DSP Report: Generating DSP p_0_out, operation Mode is: A*(B:0x1e0).
-DSP Report: operator p_0_out is absorbed into DSP p_0_out.
-DSP Report: Generating DSP p_1_out, operation Mode is: PCIN+(A:0x0):B+C.
-DSP Report: operator p_1_out is absorbed into DSP p_1_out.
+DSP Report: Generating DSP BT/rom_address1, operation Mode is: (D+(A:0x3fffff9c))*(B:0xb5).
+DSP Report: operator BT/rom_address1 is absorbed into DSP BT/rom_address1.
+DSP Report: operator BT/rom_address2 is absorbed into DSP BT/rom_address1.
+DSP Report: Generating DSP BT/rom_address0, operation Mode is: PCIN+(A:0x0):B+(C:0xffffffffffff).
+DSP Report: operator BT/rom_address0 is absorbed into DSP BT/rom_address0.
+DSP Report: Generating DSP I/rom_address1, operation Mode is: (D+(A:0x3ffffe39))*(B:0x19).
+DSP Report: operator I/rom_address1 is absorbed into DSP I/rom_address1.
+DSP Report: operator I/rom_address2 is absorbed into DSP I/rom_address1.
+DSP Report: Generating DSP I/rom_address0, operation Mode is: (PCIN or 0)+((A:0x0):B or 0)+((C:0xffffffffff1d) or 0).
+DSP Report: operator I/rom_address0 is absorbed into DSP I/rom_address0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+(D+(A:0x3ffffff4))*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr1 is absorbed into DSP read_addr0.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr1, operation Mode is: (D+(A:0xc))*(B:0x1e0).
+DSP Report: operator read_addr1 is absorbed into DSP read_addr1.
+DSP Report: operator read_addr2 is absorbed into DSP read_addr1.
+DSP Report: Generating DSP read_addr0, operation Mode is: PCIN+(A:0x0):B+(C:0xfffffffffff4).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: Generating DSP read_addr0, operation Mode is: C+A*(B:0x1e0).
+DSP Report: operator read_addr0 is absorbed into DSP read_addr0.
+DSP Report: operator p_0_out is absorbed into DSP read_addr0.
+WARNING: [Synth 8-3332] Sequential element (check_flag3_reg[2]) is unused and will be removed from module mb_usb_hdmi_top.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:42 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:14 ; elapsed = 00:00:36 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start ROM, RAM, DSP, Shift Register and Retiming Reporting
 ---------------------------------------------------------------------------------
 
 DSP: Preliminary Mapping Report (see note below. The ' indicates corresponding REG is set)
-+------------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|Module Name       | DSP Mapping                       | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
-+------------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|tank3_example     | (C:0x17)+((D:0x18)+A)*(B:0x18)    | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
-|tank3_example     | C+A*(B:0x18)                      | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|tank3_example     | (C:0x17)+A*(B:0x18)               | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|tank2_example     | (C:0x17)+((D:0x18)+A)*(B:0x18)    | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
-|tank2_example     | C+A*(B:0x18)                      | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|tank2_example     | (C:0x17)+A*(B:0x18)               | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|red_brick_example | (D+(A:0x3fffff60))*(B:0xc8)       | 14     | 8      | -      | 10     | 22     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
-|block             | PCIN+(A:0x0):B+(C:0xffffffffff9c) | 30     | 10     | 8      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-|mb_usb_hdmi_top   | A*(B:0x1e0)                       | 18     | 9      | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mb_usb_hdmi_top   | PCIN+(A:0x0):B+C                  | 30     | 18     | 18     | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
-+------------------+-----------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
++------------------+--------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|Module Name       | DSP Mapping                                            | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
++------------------+--------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
+|tank3_example     | (C:0x17)+((D:0x18)+A)*(B:0x18)                         | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|tank3_example     | C+A*(B:0x18)                                           | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|tank3_example     | (C:0x17)+A*(B:0x18)                                    | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|destroy_wall_sm   | (D+(A:0x3ffffffb))*(B:0x1e0)                           | 19     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|destroy_wall_sm   | (D+(A:0x3ffffffb))*(B:0x1e0)                           | 19     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|destroy_wall_sm   | (D+(A:0x3ffffffb))*(B:0x1e0)                           | 19     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|tank3_example     | (C:0x17)+((D:0x18)+A)*(B:0x18)                         | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|tank3_example     | C+A*(B:0x18)                                           | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|tank3_example     | (C:0x17)+A*(B:0x18)                                    | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|tank2_example     | (C:0x17)+((D:0x18)+A)*(B:0x18)                         | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|tank2_example     | C+A*(B:0x18)                                           | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|tank2_example     | (C:0x17)+A*(B:0x18)                                    | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|red_brick_example | (D+(A:0x3fffff06))*(B:0xb5)                            | 13     | 8      | -      | 10     | 21     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|block             | PCIN+(A:0x0):B+(C:0xffffffffff6b)                      | 30     | 10     | 9      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|brick_t_example   | (D+(A:0x3fffff9c))*(B:0xb5)                            | 13     | 8      | -      | 10     | 21     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|block2            | PCIN+(A:0x0):B+(C:0xffffffffffff)                      | 30     | 10     | 1      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|i_example         | (D+(A:0x3ffffe39))*(B:0x19)                            | 10     | 5      | -      | 10     | 15     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|base              | (PCIN or 0)+((A:0x0):B or 0)+((C:0xffffffffff1d) or 0) | 30     | 10     | 9      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 9      | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0xc))*(B:0x1e0)                                | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0x3ffffff4))*(B:0x1e0)                           | 18     | 9      | -      | 10     | 27     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0x3ffffff4))*(B:0x1e0)                         | 18     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0xc))*(B:0x1e0)                                  | 4      | 9      | -      | 10     | 20     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0xc))*(B:0x1e0)                                | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0x3ffffff4))*(B:0x1e0)                           | 18     | 9      | -      | 10     | 27     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0x3ffffff4))*(B:0x1e0)                         | 18     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0xc))*(B:0x1e0)                                  | 4      | 9      | -      | 10     | 20     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0xc))*(B:0x1e0)                                | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0x3ffffff4))*(B:0x1e0)                           | 18     | 9      | -      | 10     | 27     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+(D+(A:0x3ffffff4))*(B:0x1e0)                         | 18     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | (D+(A:0xc))*(B:0x1e0)                                  | 4      | 9      | -      | 10     | 20     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+(A:0x0):B+(C:0xfffffffffff4)                      | 30     | 10     | 5      | -      | -1     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*(B:0x1e0)                                          | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
++------------------+--------------------------------------------------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 
 Note: The table above is a preliminary report that shows the DSPs inferred at the current stage of the synthesis flow. Some DSP may be reimplemented as non DSP primitives later in the synthesis flow. Multiple instantiated DSPs are reported only once.
 ---------------------------------------------------------------------------------
@@ -640,19 +866,19 @@ Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 WARNING: [Synth 8-565] redefining clock 'Clk'
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:31 ; elapsed = 00:01:02 . Memory (MB): peak = 1448.512 ; gain = 637.461
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:20 ; elapsed = 00:00:48 . Memory (MB): peak = 1466.227 ; gain = 653.496
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:37 ; elapsed = 00:01:12 . Memory (MB): peak = 1492.551 ; gain = 681.500
+Finished Timing Optimization : Time (s): cpu = 00:00:25 ; elapsed = 00:00:57 . Memory (MB): peak = 1533.355 ; gain = 720.625
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:38 ; elapsed = 00:01:16 . Memory (MB): peak = 1503.445 ; gain = 692.395
+Finished Technology Mapping : Time (s): cpu = 00:00:28 ; elapsed = 00:01:01 . Memory (MB): peak = 1567.340 ; gain = 754.609
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -678,37 +904,37 @@ CRITICAL WARNING: [Synth 8-4442] BlackBox module FB has unconnected pin dina[2]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module FB has unconnected pin dina[1]
 CRITICAL WARNING: [Synth 8-4442] BlackBox module FB has unconnected pin dina[0]
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:01:22 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished IO Insertion : Time (s): cpu = 00:00:31 ; elapsed = 00:01:07 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:01:22 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:31 ; elapsed = 00:01:07 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -718,10 +944,45 @@ DSP Final Report (the ' indicates corresponding REG is set)
 +------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
 |Module Name       | DSP Mapping | A Size | B Size | C Size | D Size | P Size | AREG | BREG | CREG | DREG | ADREG | MREG | PREG | 
 +------------------+-------------+--------+--------+--------+--------+--------+------+------+------+------+-------+------+------+
-|mb_usb_hdmi_top   | A*B         | 18     | 9      | -      | -      | 27     | 0    | 0    | -    | -    | -     | 0    | 0    | 
-|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 18     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 9      | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 30     | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 30     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 4      | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 30     | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 30     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 4      | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 4      | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 30     | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+D+A*B     | 30     | 9      | 11     | 10     | 18     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | D+A*B       | 4      | 9      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|mb_usb_hdmi_top   | PCIN+A:B+C  | 0      | 10     | -      | -      | 18     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|mb_usb_hdmi_top   | C+A*B       | 10     | 9      | 10     | -      | 18     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |red_brick_example | D+A*B       | 30     | 8      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
-|block             | PCIN+A:B+C  | 0      | 9      | -      | -      | 14     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|block             | PCIN+A:B+C  | 0      | 9      | -      | -      | 13     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|brick_t_example   | D+A*B       | 30     | 8      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|block2            | PCIN+A:B+C  | 0      | 9      | -      | -      | 13     | 0    | 0    | -    | -    | -     | 0    | 0    | 
+|i_example         | D+A*B       | 30     | 5      | -      | 10     | 0      | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|base              | Dynamic     | -      | -      | -      | -      | 10     | -    | -    | -    | -    | -     | 0    | 0    | 
+|destroy_wall_sm   | D+A*B       | 30     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|destroy_wall_sm   | D+A*B       | 30     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|destroy_wall_sm   | D+A*B       | 30     | 9      | -      | 10     | 28     | 0    | 0    | -    | 0    | 0     | 0    | 0    | 
+|tank3_example     | C+D+A*B     | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
+|tank3_example     | C+A*B       | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
+|tank3_example     | C+A*B       | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |tank2_example     | C+D+A*B     | 10     | 5      | 5      | 5      | 10     | 0    | 0    | 0    | 0    | 0     | 0    | 0    | 
 |tank2_example     | C+A*B       | 10     | 5      | 10     | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
 |tank2_example     | C+A*B       | 10     | 5      | 5      | -      | 10     | 0    | 0    | 0    | -    | -     | 0    | 0    | 
@@ -752,82 +1013,82 @@ Report BlackBoxes:
 |15    |mb_block_ilmb_bram_if_cntlr_0    |         1|
 |16    |mb_block_ilmb_v10_0              |         1|
 |17    |mb_block_lmb_bram_0              |         1|
-|18    |bullet_rom                       |         2|
-|19    |frame_buffer_0                   |         1|
-|20    |clk_wiz_0                        |         1|
-|21    |hdmi_tx_0                        |         1|
-|22    |red_brick_rom                    |         1|
-|23    |tank3_rom                        |         2|
+|18    |frame_buffer_0                   |         1|
+|19    |clk_wiz_0                        |         1|
+|20    |hdmi_tx_0                        |         1|
+|21    |bullet_rom                       |         3|
+|22    |red_brick_rom                    |         2|
+|23    |i_rom                            |         1|
+|24    |tank3_rom                        |         3|
 +------+---------------------------------+----------+
 
 Report Cell Usage: 
 +------+-------------------------------+------+
 |      |Cell                           |Count |
 +------+-------------------------------+------+
-|1     |bullet_rom                     |     2|
-|3     |clk_wiz                        |     1|
-|4     |frame_buffer                   |     1|
-|5     |hdmi_tx                        |     1|
-|6     |mb_block_axi_gpio_3            |     3|
-|9     |mb_block_axi_quad_spi_0        |     1|
-|10    |mb_block_axi_timer_0           |     1|
-|11    |mb_block_axi_uartlite_0        |     1|
-|12    |mb_block_clk_wiz_1             |     1|
-|13    |mb_block_dlmb_bram_if_cntlr    |     1|
-|14    |mb_block_dlmb_v10              |     1|
-|15    |mb_block_ilmb_bram_if_cntlr    |     1|
-|16    |mb_block_ilmb_v10              |     1|
-|17    |mb_block_lmb_bram              |     1|
-|18    |mb_block_mdm_1                 |     1|
-|19    |mb_block_microblaze_0          |     1|
-|20    |mb_block_microblaze_0_axi_intc |     1|
-|21    |mb_block_rst_clk_wiz_1_100M    |     1|
-|22    |mb_block_xbar                  |     1|
-|23    |red_brick_rom                  |     1|
-|24    |tank3_rom                      |     2|
-|26    |BUFG                           |     7|
-|27    |CARRY4                         |   352|
-|28    |DSP48E1                        |    10|
-|33    |LUT1                           |   133|
-|34    |LUT2                           |   632|
-|35    |LUT3                           |   216|
-|36    |LUT4                           |   452|
-|37    |LUT5                           |   472|
-|38    |LUT6                           |   549|
-|39    |MUXF7                          |     2|
-|40    |FDCE                           |   356|
-|41    |FDPE                           |    37|
-|42    |FDRE                           |    78|
-|43    |FDSE                           |     4|
-|44    |LD                             |   258|
-|45    |LDC                            |    19|
-|46    |IBUF                           |     4|
-|47    |OBUF                           |    29|
+|1     |bullet_rom                     |     3|
+|4     |clk_wiz                        |     1|
+|5     |frame_buffer                   |     1|
+|6     |hdmi_tx                        |     1|
+|7     |i_rom                          |     1|
+|8     |mb_block_axi_gpio_3            |     3|
+|11    |mb_block_axi_quad_spi_0        |     1|
+|12    |mb_block_axi_timer_0           |     1|
+|13    |mb_block_axi_uartlite_0        |     1|
+|14    |mb_block_clk_wiz_1             |     1|
+|15    |mb_block_dlmb_bram_if_cntlr    |     1|
+|16    |mb_block_dlmb_v10              |     1|
+|17    |mb_block_ilmb_bram_if_cntlr    |     1|
+|18    |mb_block_ilmb_v10              |     1|
+|19    |mb_block_lmb_bram              |     1|
+|20    |mb_block_mdm_1                 |     1|
+|21    |mb_block_microblaze_0          |     1|
+|22    |mb_block_microblaze_0_axi_intc |     1|
+|23    |mb_block_rst_clk_wiz_1_100M    |     1|
+|24    |mb_block_xbar                  |     1|
+|25    |red_brick_rom                  |     2|
+|27    |tank3_rom                      |     3|
+|30    |BUFG                           |    10|
+|31    |CARRY4                         |   548|
+|32    |DSP48E1                        |    45|
+|36    |LUT1                           |   175|
+|37    |LUT2                           |   809|
+|38    |LUT3                           |   395|
+|39    |LUT4                           |   827|
+|40    |LUT5                           |   843|
+|41    |LUT6                           |  1024|
+|42    |MUXF7                          |     3|
+|43    |FDCE                           |   501|
+|44    |FDPE                           |    26|
+|45    |FDRE                           |   224|
+|46    |FDSE                           |     7|
+|47    |LD                             |   380|
+|48    |IBUF                           |     4|
+|49    |OBUF                           |    29|
 +------+-------------------------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 8 critical warnings and 194 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:36 ; elapsed = 00:01:20 . Memory (MB): peak = 1516.242 ; gain = 598.219
-Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:01:23 . Memory (MB): peak = 1516.242 ; gain = 705.191
+Synthesis finished with 0 errors, 8 critical warnings and 211 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:01:06 . Memory (MB): peak = 1582.172 ; gain = 664.461
+Synthesis Optimization Complete : Time (s): cpu = 00:00:31 ; elapsed = 00:01:08 . Memory (MB): peak = 1582.172 ; gain = 769.441
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.090 . Memory (MB): peak = 1528.312 ; gain = 0.000
-INFO: [Netlist 29-17] Analyzing 641 Unisim elements for replacement
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.118 . Memory (MB): peak = 1594.234 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 976 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-140] Inserted 1 IBUFs to IO ports without IO buffers.
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1531.949 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 1597.879 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 277 instances were transformed.
-  LD => LDCE: 258 instances
-  LDC => LDCE: 19 instances
+  A total of 380 instances were transformed.
+  LD => LDCE: 380 instances
 
-Synth Design complete, checksum: 10bb34c4
+Synth Design complete, checksum: 53d981b9
 INFO: [Common 17-83] Releasing license: Synthesis
-140 Infos, 229 Warnings, 9 Critical Warnings and 0 Errors encountered.
+158 Infos, 270 Warnings, 9 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:01:30 . Memory (MB): peak = 1531.949 ; gain = 1097.727
+synth_design: Time (s): cpu = 00:00:34 ; elapsed = 00:01:13 . Memory (MB): peak = 1597.879 ; gain = 1162.125
 INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WARNING
 [libprotobuf ERROR C:\w10\HEAD\src\ext\protobuf\build\lnx64\protobuf-3.7.1\src\google\protobuf\wire_format_lite.cc:611] String field 'HDMetricDBGroup.MetricMapEntry.value' contains invalid UTF-8 data when serializing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
 [libprotobuf ERROR C:\w10\HEAD\src\ext\protobuf\build\lnx64\protobuf-3.7.1\src\google\protobuf\wire_format_lite.cc:611] String field 'HDMetricDBGroup.MetricMapEntry.value' contains invalid UTF-8 data when serializing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
@@ -835,4 +1096,4 @@ INFO: [runtcl-6] Synthesis results are not added to the cache due to CRITICAL_WA
 [libprotobuf ERROR C:\w10\HEAD\src\ext\protobuf\build\lnx64\protobuf-3.7.1\src\google\protobuf\wire_format_lite.cc:611] String field 'HDMetricDBGroup.MetricMapEntry.value' contains invalid UTF-8 data when serializing a protocol buffer. Use the 'bytes' type if you intend to send raw bytes. 
 INFO: [Common 17-1381] The checkpoint 'E:/xilinx/final_project/lab6.runs/synth_1/mb_usb_hdmi_top.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file mb_usb_hdmi_top_utilization_synth.rpt -pb mb_usb_hdmi_top_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Fri Apr 26 15:41:32 2024...
+INFO: [Common 17-206] Exiting Vivado at Wed May  1 09:47:17 2024...

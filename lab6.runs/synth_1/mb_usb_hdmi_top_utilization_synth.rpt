@@ -1,7 +1,7 @@
 Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2022.2 (win64) Build 3671981 Fri Oct 14 05:00:03 MDT 2022
-| Date         : Fri Apr 26 15:41:32 2024
+| Date         : Wed May  1 09:47:17 2024
 | Host         : yinuo running 64-bit major release  (build 9200)
 | Command      : report_utilization -file mb_usb_hdmi_top_utilization_synth.rpt -pb mb_usb_hdmi_top_utilization_synth.pb
 | Design       : mb_usb_hdmi_top
@@ -31,13 +31,13 @@ Table of Contents
 +-------------------------+------+-------+------------+-----------+-------+
 |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
 +-------------------------+------+-------+------------+-----------+-------+
-| Slice LUTs*             | 2146 |     0 |          0 |     32600 |  6.58 |
-|   LUT as Logic          | 2146 |     0 |          0 |     32600 |  6.58 |
+| Slice LUTs*             | 3538 |     0 |          0 |     32600 | 10.85 |
+|   LUT as Logic          | 3538 |     0 |          0 |     32600 | 10.85 |
 |   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
-| Slice Registers         |  752 |     0 |          0 |     65200 |  1.15 |
-|   Register as Flip Flop |  475 |     0 |          0 |     65200 |  0.73 |
-|   Register as Latch     |  277 |     0 |          0 |     65200 |  0.42 |
-| F7 Muxes                |    2 |     0 |          0 |     16300 |  0.01 |
+| Slice Registers         | 1138 |     0 |          0 |     65200 |  1.75 |
+|   Register as Flip Flop |  758 |     0 |          0 |     65200 |  1.16 |
+|   Register as Latch     |  380 |     0 |          0 |     65200 |  0.58 |
+| F7 Muxes                |    3 |     0 |          0 |     16300 |  0.02 |
 | F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
 +-------------------------+------+-------+------------+-----------+-------+
 * Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
@@ -56,10 +56,10 @@ Warning! LUT value is adjusted to account for LUT combining.
 | 0     |            _ |         Set |            - |
 | 0     |            _ |       Reset |            - |
 | 0     |          Yes |           - |            - |
-| 37    |          Yes |           - |          Set |
-| 633   |          Yes |           - |        Reset |
-| 4     |          Yes |         Set |            - |
-| 78    |          Yes |       Reset |            - |
+| 26    |          Yes |           - |          Set |
+| 881   |          Yes |           - |        Reset |
+| 7     |          Yes |         Set |            - |
+| 224   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -82,8 +82,8 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------------+------+-------+------------+-----------+-------+
 |    Site Type   | Used | Fixed | Prohibited | Available | Util% |
 +----------------+------+-------+------------+-----------+-------+
-| DSPs           |   10 |     0 |          0 |       120 |  8.33 |
-|   DSP48E1 only |   10 |       |            |           |       |
+| DSPs           |   45 |     0 |          0 |       120 | 37.50 |
+|   DSP48E1 only |   45 |       |            |           |       |
 +----------------+------+-------+------------+-----------+-------+
 
 
@@ -115,7 +115,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 +------------+------+-------+------------+-----------+-------+
 |  Site Type | Used | Fixed | Prohibited | Available | Util% |
 +------------+------+-------+------------+-----------+-------+
-| BUFGCTRL   |    7 |     0 |          0 |        32 | 21.88 |
+| BUFGCTRL   |   10 |     0 |          0 |        32 | 31.25 |
 | BUFIO      |    0 |     0 |          0 |        20 |  0.00 |
 | MMCME2_ADV |    0 |     0 |          0 |         5 |  0.00 |
 | PLLE2_ADV  |    0 |     0 |          0 |         5 |  0.00 |
@@ -148,23 +148,23 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| LUT2     |  632 |                 LUT |
-| LUT6     |  549 |                 LUT |
-| LUT5     |  472 |                 LUT |
-| LUT4     |  452 |                 LUT |
-| FDCE     |  356 |        Flop & Latch |
-| CARRY4   |  352 |          CarryLogic |
-| LDCE     |  277 |        Flop & Latch |
-| LUT3     |  216 |                 LUT |
-| LUT1     |  133 |                 LUT |
-| FDRE     |   78 |        Flop & Latch |
-| FDPE     |   37 |        Flop & Latch |
+| LUT6     | 1024 |                 LUT |
+| LUT5     |  843 |                 LUT |
+| LUT4     |  827 |                 LUT |
+| LUT2     |  809 |                 LUT |
+| CARRY4   |  548 |          CarryLogic |
+| FDCE     |  501 |        Flop & Latch |
+| LUT3     |  395 |                 LUT |
+| LDCE     |  380 |        Flop & Latch |
+| FDRE     |  224 |        Flop & Latch |
+| LUT1     |  175 |                 LUT |
+| DSP48E1  |   45 |    Block Arithmetic |
 | OBUF     |   29 |                  IO |
-| DSP48E1  |   10 |    Block Arithmetic |
-| BUFG     |    7 |               Clock |
+| FDPE     |   26 |        Flop & Latch |
+| BUFG     |   10 |               Clock |
+| FDSE     |    7 |        Flop & Latch |
 | IBUF     |    5 |                  IO |
-| FDSE     |    4 |        Flop & Latch |
-| MUXF7    |    2 |               MuxFx |
+| MUXF7    |    3 |               MuxFx |
 +----------+------+---------------------+
 
 
@@ -174,9 +174,9 @@ Warning! LUT value is adjusted to account for LUT combining.
 +----------------------------------+------+
 |             Ref Name             | Used |
 +----------------------------------+------+
-| tank3_rom                        |    2 |
-| bullet_rom                       |    2 |
-| red_brick_rom                    |    1 |
+| tank3_rom                        |    3 |
+| bullet_rom                       |    3 |
+| red_brick_rom                    |    2 |
 | mb_block_xbar_0                  |    1 |
 | mb_block_rst_clk_wiz_1_100M_0    |    1 |
 | mb_block_microblaze_0_axi_intc_0 |    1 |
@@ -194,6 +194,7 @@ Warning! LUT value is adjusted to account for LUT combining.
 | mb_block_axi_gpio_3_2            |    1 |
 | mb_block_axi_gpio_3_1            |    1 |
 | mb_block_axi_gpio_3_0            |    1 |
+| i_rom                            |    1 |
 | hdmi_tx_0                        |    1 |
 | frame_buffer_0                   |    1 |
 | clk_wiz_0                        |    1 |
