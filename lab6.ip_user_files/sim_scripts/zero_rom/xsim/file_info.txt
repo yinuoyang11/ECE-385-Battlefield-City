@@ -1,0 +1,2 @@
+zero_rom.v,verilog,xil_defaultlib,../../../../lab6.gen/sources_1/ip/zero_rom/sim/zero_rom.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

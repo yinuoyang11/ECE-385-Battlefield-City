@@ -145,6 +145,7 @@ OPTRACE "add files" START { }
   set_msg_config -source 4 -id {BD 41-1661} -limit 0
   set_param project.isImplRun true
   add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/one_rom/one_rom.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/hdmi_tx_0/hdmi_tx_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/red_brick_rom/red_brick_rom.xci
@@ -152,6 +153,17 @@ OPTRACE "add files" START { }
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/frame_buffer_0/frame_buffer_0.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/bullet_rom/bullet_rom.xci
   read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/i_rom/i_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/two_rom/two_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/three_rom/three_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/four_rom/four_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/five_rom/five_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/six_rom/six_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/seven_rom/seven_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/eight_rom/eight_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/nine_rom/nine_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/score_rom/score_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/zero_rom/zero_rom.xci
+  read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/over_rom/over_rom.xci
   set_param project.isImplRun false
 OPTRACE "read constraints: implementation" START { }
   read_xdc F:/lab6_2_provided/pin_assignment/mb_usb_hdmi_top.xdc

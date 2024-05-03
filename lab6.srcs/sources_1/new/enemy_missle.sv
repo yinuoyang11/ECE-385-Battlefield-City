@@ -32,11 +32,13 @@ module enemy_missle(
     input  logic        block_flag[3],
     input  logic        base_flag[3],
     input  logic        fire_flag,
+    input  logic [31:0] timer,
     output logic [9:0]  missle_center_x[3], 
     output logic [9:0]  missle_center_y[3],
     output logic [9:0]  missle_center_x_next[3],
     output logic [9:0]  missle_center_y_next[3],
-    output logic active_missle_flag[3]
+    output logic active_missle_flag[3],
+    output logic blast_on
 );
 typedef struct {
     logic [9:0] x_motion;
@@ -68,11 +70,12 @@ logic [9:0] missle_center_x_next_[3];
 logic [9:0] missle_center_y_next_[3];
 logic copy_flag_reg[3];
 logic [7:0] prev_key;
-
+logic blast_on_;
+logic [31:0] count_copy;
 assign active_missle_flag = active_missle_flag_;
 assign missle_center_x_next = missle_center_x_next_;
 assign missle_center_y_next = missle_center_y_next_;
-
+assign blast_on = blast_on_;
 always_comb begin
     active_missle_flag_ = {0,0,0};
     for (int i =0;i<3;i++) begin
@@ -86,8 +89,13 @@ always_comb begin
     end
 end
 always_ff @(posedge frame_clk or posedge Reset) begin
+    if ((timer-count_copy)>=5 && blast_on_) begin
+        blast_on_ <= 0;
+    end
     if (Reset) begin
         prev_key <= 8'h00;
+        blast_on_ <= 0;
+        count_copy <= 31'b0;
         for (int i = 0;i<3;i++) begin
             missles[i].active_flag <= 0;
             missles[i].x_pos <= 0;
@@ -99,6 +107,8 @@ always_ff @(posedge frame_clk or posedge Reset) begin
     end
     else begin
         if (fire_flag && active_count<3) begin
+            blast_on_ <= 1;
+            count_copy <= timer;
             for (int j = 0;j<3;j++) begin
                 if (missles[j].active_flag == 0) begin
                     missles[j].active_flag <= 1;
@@ -113,7 +123,7 @@ always_ff @(posedge frame_clk or posedge Reset) begin
         end
         for (int i = 0;i<3;i++) begin
             if (missles[i].active_flag==1) begin
-                if (copy_flag_reg[i] == 0 && missle_center_x_next_[i]>=0 && missle_center_x_next_[i]<480 && missle_center_y_next_[i]>=0 && missle_center_y_next_[i]<480) begin
+                if ((copy_flag_reg[i] == 0) && (missle_center_x_next_[i]>=0) && (missle_center_x_next_[i]<480) && (missle_center_y_next_[i]>=0) && (missle_center_y_next_[i]<480)) begin
                     missles[i].x_pos <= missle_center_x_next_[i];
                     missles[i].y_pos <= missle_center_y_next_[i];
                 end
@@ -139,7 +149,7 @@ always_ff @(posedge clk_25MHz) begin
             if (missles[i].active_flag==0) begin
                 copy_flag_reg[i] <= 0;
             end
-            else if (missle_read_flag[i]==1 && (tank_flag[i] | block_flag[i] | base_flag[i])) begin
+            else if ((missle_read_flag[i]==1) && (tank_flag[i] | block_flag[i] | base_flag[i])) begin
                 copy_flag_reg[i] <= 1;
             end
             else begin

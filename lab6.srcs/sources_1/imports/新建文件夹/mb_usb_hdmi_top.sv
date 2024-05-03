@@ -39,7 +39,8 @@ module mb_usb_hdmi_top(
     output logic [7:0] hex_segA,
     output logic [3:0] hex_gridA,
     output logic [7:0] hex_segB,
-    output logic [3:0] hex_gridB
+    output logic [3:0] hex_gridB,
+    output logic pwm_sig
 );
     
     logic [31:0] keycode0_gpio, keycode1_gpio;
@@ -54,9 +55,11 @@ module mb_usb_hdmi_top(
   
     logic block_on;
     logic block2_on;
+    logic block3_on;
     logic tank_on, tank2_on, missle1_on, missle2_on, enemy_tank_on;
     logic [1:0] block_rom;
     logic [1:0] block2_rom;
+    logic [1:0] block3_rom;
     logic [1:0] tank_rom;
     logic [1:0] tank2_rom;
     logic [1:0] enemy_tank_rom;
@@ -87,14 +90,24 @@ module mb_usb_hdmi_top(
     logic [7:0] tank0_readdata;
     logic [9:0] tank1x_next, tank1y_next, tank1xsig, tank1ysig;
     logic [1:0] tank1_direction;
-
+    logic [3:0] player1_hp;
+    logic player1_active;
+    logic player1_attack_flag;
+    logic player1_attack_flag_copy;
+    logic [7:0] player1_score;
+    logic player1_score_copy;
     //tank2
     logic tank2_readleft_flag;
     logic tank2_readright_flag;
     logic [7:0] tank1_readdata;
     logic [9:0] tank2x_next, tank2y_next, tank2xsig, tank2ysig;
     logic [1:0] tank2_direction;
-
+    logic [3:0] player2_hp;
+    logic player2_attack_flag;
+    logic player2_attack_flag_copy;
+    logic player2_active;
+    logic [7:0] player2_score;
+    logic player2_score_copy;
     // enemy tank
     logic enemy_tank_readleft_flag;
     logic enemy_tank_readright_flag;
@@ -102,7 +115,9 @@ module mb_usb_hdmi_top(
     logic [9:0] enemy_tankx_next, enemy_tanky_next, enemy_tankxsig, enemy_tankysig;
     logic [1:0] enemy_tank_direction;
     logic enemy_fire_flag;
-
+    logic em_tank_active_flag;
+    logic enemy_tank_attck_flag;
+    logic enemy_tank_attck_flag_copy;
     // enemy missle1
     logic enemy_missle1_read_flag[3];
     logic em_tank1_in[3];
@@ -157,24 +172,108 @@ module mb_usb_hdmi_top(
 
     // timer
     logic [31:0] timer;
-
+    logic [31:0] frame_counter;
     // base
     logic attack_flag;
     logic attack_flag_copy;
     logic base_on;
     logic [1:0] base_rom;
     logic game_over_flag;
-    logic [2:0] base_hp;
+    logic [3:0] base_hp;
+
+    logic score1_first_time;
+    logic score2_first_time;
+    localparam integer pulse_width_on = 191570;
+    localparam integer pulse_width_off = 141;
+    int pulse_width;
+    logic [31:0] pwm_counter; 
+    logic pwm_signal;
+    logic blast_on1,blast_on2,blast_on3;
+    logic blast_total;
+    logic [3:0] font_red, font_blue, font_green;
+    assign blast_total = blast_on1 || blast_on2 || blast_on3;
+    one_example OE(
+        .vga_clk(Clk),
+	    .DrawX(drawX), 
+        .DrawY(drawY),
+	    .player1_score(player1_score), 
+        .player2_score(player2_score),
+	    .red(font_red), 
+        .green(font_green), 
+        .blue(font_blue)
+    );
+    
+    always_ff @(posedge Clk) begin
+    if(blast_total) begin
+        pulse_width <= pulse_width_on;
+    end
+    else
+    begin
+        pulse_width <= pulse_width_off;
+    end
+    if(reset_ah)begin
+        pwm_counter <= 0;
+        pwm_signal <= 0;
+    end
+
+    else begin
+        if(pwm_counter >= pulse_width)begin
+            pwm_counter <=0;
+            pwm_signal <= ~pwm_signal;
+        end
+        else begin
+            pwm_counter <= pwm_counter + 1;
+            pwm_signal <= pwm_signal;
+        end 
+    end
+end
+assign pwm_sig = pwm_signal; 
+
+//music_controller musc(
+//    .reset(reset_ah), // 
+//    .clk_100Mhz(Clk),
+//    .pwm_out(pwm_sig) // PWM 
+//);
+
     always_ff @(posedge clk_25MHz or posedge reset_ah) begin
         if (reset_ah) begin
             attack_flag <= 0;
+            enemy_tank_attck_flag <= 0;
+            player1_attack_flag <= 0;
+            player2_attack_flag <= 0;
+            player1_score <= 8'b0;
+            player2_score <= 8'b0;
+            score1_first_time <= 1;
+            score2_first_time <= 1;
         end
         else if (drawY==492) begin
             attack_flag <= 0;
+            enemy_tank_attck_flag <= 0;
+            player1_attack_flag <= 0;
+            player2_attack_flag <= 0;
+            score1_first_time <= 1;
+            score2_first_time <= 1;
         end
         else begin
             if (attack_flag_copy==1) begin
                 attack_flag <= 1;
+            end
+            if (enemy_tank_attck_flag_copy==1) begin
+                enemy_tank_attck_flag <= 1;
+            end 
+            if (player1_attack_flag_copy==1) begin
+                player1_attack_flag <= 1;
+            end
+            if (player2_attack_flag_copy==1) begin
+                player2_attack_flag <= 1;
+            end
+            if (player1_score_copy==1 && score1_first_time && (frame_counter%8==0)) begin
+                player1_score <= player1_score + 1;
+                score1_first_time <= 0;
+            end
+            if (player2_score_copy==1 && score2_first_time && (frame_counter%8==0)) begin
+                player2_score <= player2_score + 1;
+                score2_first_time <= 0;
             end
         end
     end
@@ -186,6 +285,7 @@ module mb_usb_hdmi_top(
         .readen_right_flag(enemy_tank_readright_flag),
         .enemy_tank_readdata(enemy_tank_readdata),
         .timer(timer),
+        .em_tank_attack_flag(enemy_tank_attck_flag),
         .player1_tank_x(tank1xsig),
         .player2_tank_x(tank2xsig),
         .player1_tank_y(tank1ysig),
@@ -195,7 +295,8 @@ module mb_usb_hdmi_top(
         .Ball_X_next_(enemy_tankx_next),
         .Ball_Y_next_(enemy_tanky_next),
         .direction(enemy_tank_direction),
-        .fire_missle(enemy_fire_flag)
+        .fire_missle(enemy_fire_flag),
+        .em_tank_active(em_tank_active_flag)
     );
     enemy_missle EM(
        .Reset(reset_ah), 
@@ -207,18 +308,21 @@ module mb_usb_hdmi_top(
        .tank_direction(enemy_tank_direction), // 00: left, 01: up, 10:right, 11:down
        .tank_flag(em_tank1_in),
        .block_flag(em_block1_in),
+       .timer(timer),
        .fire_flag(enemy_fire_flag),
        .missle_center_x(enemy_missle_center_x), 
        .missle_center_y(enemy_missle_center_y),
        .missle_center_x_next(enemy_missle1_center_x_next),
        .missle_center_y_next(enemy_missle1_center_y_next),
-       .active_missle_flag(enemy_missle_active)
+       .active_missle_flag(enemy_missle_active),
+       .blast_on(blast_on3)
     );
     tank3_example ETE(
         .vga_clk(Clk),
         .direction(enemy_tank_direction),
 	    .DrawX(fb_x), 
         .DrawY(fb_y), 
+        .active_flag(em_tank_active_flag),
         .tankX(enemy_tankxsig), 
         .tankY(enemy_tankysig),
 	    .rom_q(enemy_tank_rom),
@@ -234,23 +338,42 @@ module mb_usb_hdmi_top(
 	   .rom_q(enemy_missle_rom),
 	   .missle_on(enemy_missle_on)
     );
-    destroy_wall_sm EDW1(
-        .Reset(reset_ah),
-        .Clk(Clk),
-        .check_flag(check_flag3),
-        .missle_active_flag(enemy_missle_active),
-        .block_flag(em_block1_in),
-        .missle_center_x(enemy_missle1_center_x_next),
-        .missle_center_y(enemy_missle1_center_y_next),
-        .reload_addr(enemy_missle_wraddr),
-        .reload_data(enemy_missle_wrdata),
-        .block_rewrite_flag(enemy_missle_wren)
-    );
+//    pwm_core sound_effect(
+//    .reset_pwm(reset),
+//    .clk(Clk),
+//    .en_pwm(1),
+//    .period(383), //pwm_period = 100MHz/note_freq, 100MHz/261Hz = 383
+//    .pulse_width(141),
+//    .pwm(pwm_sig)
+//);
+    // destroy_wall_sm EDW1(
+    //     .Reset(reset_ah),
+    //     .Clk(Clk),
+    //     .check_flag(check_flag3),
+    //     .missle_active_flag(enemy_missle_active),
+    //     .block_flag(em_block1_in),
+    //     .missle_center_x(enemy_missle1_center_x_next),
+    //     .missle_center_y(enemy_missle1_center_y_next),
+    //     .reload_addr(enemy_missle_wraddr),
+    //     .reload_data(enemy_missle_wrdata),
+    //     .block_rewrite_flag(enemy_missle_wren)
+    // );
     always_ff @(posedge Clk) begin
         if (reset_ah == 1'b1) begin
             write_addr <= 0;
             counter <= 0;
             first_time_flag <= 0;
+            attack_flag_copy <= 0;
+            enemy_tank_attck_flag_copy <= 0;
+            player1_attack_flag_copy <= 0;
+            player2_attack_flag_copy <= 0;
+            player1_score_copy <= 0;
+            player2_score_copy <= 0;
+//            score1_unit <= 0;
+//            score1_ten <= 0;
+//            score2_unit <=0;
+//            score2_ten <= 0;
+//            addr_ <= 0;
         end
         else if (counter == 19'b0111000001111111111) begin
             write_addr <= counter;
@@ -269,9 +392,9 @@ module mb_usb_hdmi_top(
         else if (missle2_wren) begin
             write_addr <= missle2_wraddr;
         end
-        else if (enemy_missle_wren) begin
-            write_addr <= enemy_missle_wraddr;
-        end
+        // else if (enemy_missle_wren) begin
+        //     write_addr <= enemy_missle_wraddr;
+        // end
         else begin
         end
 
@@ -293,12 +416,15 @@ module mb_usb_hdmi_top(
         else if (enemy_tank_on) begin
             write_data <= {6'b000101, enemy_tank_rom};
         end
-        else if (block_on || block2_on) begin
+        else if (block_on || block2_on || block3_on) begin
             if (first_time_flag == 0 && block_on) begin
                 write_data <= {6'b0, block_rom};
             end
             else if (first_time_flag == 0 && block2_on) begin
                 write_data <= {6'b0, block2_rom};
+            end
+            else if ((first_time_flag == 0) && block3_on) begin
+                write_data <= {6'b0, block3_rom};
             end
             else if (read_data[4:2]==3'b011 || read_data[4:2]==3'b001 || read_data[4:2] == 3'b010 || read_data[4:2] == 3'b101) begin
                 write_data <= 8'b00010000;
@@ -316,13 +442,15 @@ module mb_usb_hdmi_top(
         else if (missle2_wren) begin
             write_data <= missle2_wrdata;
         end
-        else if (enemy_missle_wren) begin
-            write_data <= enemy_missle_wrdata;
-        end
+        // else if (enemy_missle_wren) begin
+        //     write_data <= enemy_missle_wrdata;
+        // end
         else begin
            write_data <= 8'b00010000;
         end
 
+        
+        //
         if (tank2_readleft_flag == 1 || tank2_readright_flag == 1) begin
             tank1_readdata <= read_data;
         end
@@ -335,9 +463,13 @@ module mb_usb_hdmi_top(
         else if (missle1_read_flag[0] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank1_in[0] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player1_score_copy <= 1;
             end
             else begin
                 tank1_in[0] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player1_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block1_in[0] <= 1;
@@ -357,9 +489,13 @@ module mb_usb_hdmi_top(
         else if (missle1_read_flag[1] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank1_in[1] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player1_score_copy <= 1;
             end
             else begin
                 tank1_in[1] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player1_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block1_in[1] <= 1;
@@ -379,9 +515,13 @@ module mb_usb_hdmi_top(
         else if (missle1_read_flag[2] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank1_in[2] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player1_score_copy <= 1;
             end
             else begin
                 tank1_in[2] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player1_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block1_in[2] <= 1;
@@ -401,9 +541,13 @@ module mb_usb_hdmi_top(
         else if (missle2_read_flag[0] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank2_in[0] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player2_score_copy <= 1;
             end
             else begin
                 tank2_in[0] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player2_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block2_in[0] <= 1;
@@ -423,9 +567,13 @@ module mb_usb_hdmi_top(
         else if (missle2_read_flag[1] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank2_in[1] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player2_score_copy <= 1;
             end
             else begin
                 tank2_in[1] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player2_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block2_in[1] <= 1;
@@ -445,9 +593,13 @@ module mb_usb_hdmi_top(
         else if (missle2_read_flag[2] == 1) begin
             if (read_data[4:2] == 3'b101) begin  // needs to change to enemy tank attr
                 tank2_in[2] <= 1;
+                enemy_tank_attck_flag_copy <= 1;
+                player2_score_copy <= 1;
             end
             else begin
                 tank2_in[2] <= 0;
+                enemy_tank_attck_flag_copy <= 0;
+                player2_score_copy <= 0;
             end
             if (read_data[4:2] == 3'b000) begin
                 block2_in[2] <= 1;
@@ -466,8 +618,14 @@ module mb_usb_hdmi_top(
         end
         // enemy missle
         else if (enemy_missle1_read_flag[0] == 1) begin
-            if (read_data[4:2] == 3'b001 || read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
+            if ((read_data[4:2] == 3'b001) || (read_data[4:2] == 3'b010)) begin  // needs to change to enemy tank attr
                 em_tank1_in[0] <= 1;
+                if (read_data[4:2] == 3'b001) begin
+                    player1_attack_flag_copy <= 1;
+                end
+                if (read_data[4:2] == 3'b010) begin
+                    player2_attack_flag_copy <= 1;
+                end
             end
             else begin
                 em_tank1_in[0] <= 0;
@@ -490,6 +648,12 @@ module mb_usb_hdmi_top(
         else if (enemy_missle1_read_flag[1] == 1) begin
             if (read_data[4:2] == 3'b001 || read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
                 em_tank1_in[1] <= 1;
+                if (read_data[4:2] == 3'b001) begin
+                    player1_attack_flag_copy <= 1;
+                end
+                if (read_data[4:2] ==3'b010) begin
+                    player2_attack_flag_copy <= 1;
+                end
             end
             else begin
                 em_tank1_in[1] <= 0;
@@ -512,6 +676,12 @@ module mb_usb_hdmi_top(
         else if (enemy_missle1_read_flag[2] == 1) begin
             if (read_data[4:2] == 3'b001 || read_data[4:2] == 3'b010) begin  // needs to change to enemy tank attr
                 em_tank1_in[2] <= 1;
+                if (read_data[4:2] == 3'b001) begin
+                    player1_attack_flag_copy <= 1;
+                end
+                if (read_data[4:2]==3'b010) begin
+                    player2_attack_flag_copy <= 1;
+                end
             end
             else begin
                 em_tank1_in[2] <= 0;
@@ -535,26 +705,35 @@ module mb_usb_hdmi_top(
             tank1_readdata <= 8'hff;
             tank0_readdata <= 8'hff;
             enemy_tank_readdata <= 8'hff;
+            attack_flag_copy <= 0;
+            enemy_tank_attck_flag_copy <= 0;
+            player1_attack_flag_copy <= 0;
+            player2_attack_flag_copy <= 0;
+            player1_score_copy <= 0;
+            player2_score_copy <= 0;
             for (int i = 0;i<3;i++) begin
                 tank1_in[i] <= 0;
                 block1_in[i] <= 0;
-                base1_in[i] <= 0;
                 tank2_in[i] <= 0;
                 block2_in[i] <= 0;
-                base2_in[i] <= 0;
                 em_tank1_in[i] <= 0;
                 em_block1_in[i] <= 0;
-                em_base1_in[i] <= 0;
-                attack_flag_copy <= 0;
             end
         end
         
         if (play_area == 0) begin
             color_idx <= read_data[1:0];
             palette_idx <= 3'b000;
-            red <= 4'b1111;
-            green <= 4'b0111;
-            blue <= 4'b0;
+            if ((drawX >= 490 && drawX < 590 && drawY >= 200 && drawY < 232) || (drawX >= 600 && drawX < 616 && drawY >= 200 && drawY < 232 )||(drawX >= 620 && drawX < 636 && drawY >= 200 && drawY < 232)) begin
+                red <= font_red;
+                green <= font_green;
+                blue <= font_blue;
+            end
+            else begin
+                red <= 4'b1111;
+                green <= 4'b0111;
+                blue <= 4'b0;
+            end
         end
         else if (read_data[4:2] == 3'b011) begin
             palette_idx <= read_data[4:2];
@@ -630,7 +809,7 @@ module mb_usb_hdmi_top(
             read_en = 1;
             play_area = 1'b1;
         end
-        else if (block_on || block2_on) begin
+        else if (block_on || block2_on || block3_on) begin
             read_addr = fb_x + fb_y * 480;
             read_en = 1;
         end
@@ -757,49 +936,19 @@ module mb_usb_hdmi_top(
         // enemy tank
         else if ((drawY == 481) && (drawX>=150) && (drawX<160)) begin
             enemy_tank_readleft_flag = 1;
-            if (enemy_tanky_next==enemy_tankysig) begin
-                if ((enemy_tankx_next-enemy_tankxsig)==-1) begin
-                    read_addr = (enemy_tankx_next-12) + (enemy_tanky_next+12)*480;
-                end
-                else if ((enemy_tankx_next-enemy_tankxsig)==1) begin
-                    read_addr = (enemy_tankx_next+12) + (enemy_tanky_next-12)*480;
-                end
-            end
-            else if (enemy_tankx_next==enemy_tankxsig) begin
-                if ((enemy_tanky_next-enemy_tankysig)==-1) begin
-                    read_addr = (enemy_tankx_next-12) + (enemy_tanky_next-12)*480;
-                end
-                else if ((enemy_tanky_next-enemy_tankysig)==1) begin
-                    read_addr = (enemy_tankx_next+12) + (enemy_tanky_next+12)*480;
-                end
-            end
+            read_addr = (enemy_tankx_next-12) + (enemy_tanky_next+12)*480;
             read_en = 1;
         end
         else if ((drawY == 481) && (drawX>=160) && (drawX<170)) begin
             enemy_tank_readright_flag = 1;
-            if (enemy_tanky_next==enemy_tankysig) begin
-                if ((enemy_tankx_next-enemy_tankxsig)==-1) begin
-                    read_addr = (enemy_tankx_next-12) + (enemy_tanky_next-12)*480;
-                end
-                else if ((enemy_tankx_next-enemy_tankxsig)==1) begin
-                    read_addr = (enemy_tankx_next+12) + (enemy_tanky_next+12)*480;
-                end
-            end
-            else if (enemy_tankx_next==enemy_tankxsig) begin
-                if ((enemy_tanky_next-enemy_tankysig)==-1) begin
-                    read_addr = (enemy_tankx_next+12) + (enemy_tanky_next-12)*480;
-                end
-                else if ((enemy_tanky_next-enemy_tankysig)==1) begin
-                    read_addr = (enemy_tankx_next-12) + (enemy_tanky_next+12)*480;
-                end
-            end
+            read_addr = (enemy_tankx_next+12) + (enemy_tanky_next+12)*480;
             read_en = 1;
         end
         // enemy missle
         else if ((drawY == 481) && (drawX>=170) && (drawX<319)) begin
             enemy_missle1_read_flag[0] = 1;
             check_flag3 = 2'b01;
-            read_addr = enemy_missle1_center_x_next[0] + enemy_missle1_center_y_next[0]*480;
+            read_addr = enemy_missle1_center_x_next[0] +enemy_missle1_center_y_next[0]*480;
             read_en = 1;
         end
         else if ((drawY == 481) && (drawX>=320) && (drawX<449)) begin
@@ -816,7 +965,7 @@ module mb_usb_hdmi_top(
         end
         else begin
         end
-        if ((block_on || block2_on) && first_time_flag) begin
+        if ((block_on || block2_on || block3_on) && first_time_flag) begin
              if (tank_on || tank2_on || enemy_tank_on|| missle1_on || missle2_on || enemy_missle_on) begin      // make sure tank and missle can draw on the destroy wall
                  write_en = 1;
              end
@@ -830,7 +979,10 @@ module mb_usb_hdmi_top(
         else if ((write_addr >= 0) && (write_addr < 19'b0111000001111111111) && (~vde)) begin
             write_en = 1;
         end
-        else if (missle1_wren | missle2_wren | enemy_missle_wren) begin
+        // else if (missle1_wren | missle2_wren | enemy_missle_wren) begin
+        //     write_en = 1;
+        // end
+        else if (missle1_wren | missle2_wren) begin
             write_en = 1;
         end
         else begin
@@ -886,7 +1038,8 @@ module mb_usb_hdmi_top(
     timer CLOCK(
         .frame_clk(vsync),
         .Reset(reset_ah),
-        .timer(timer)
+        .timer(timer),
+        .counter_out(frame_counter)
     );
     //Keycode HEX drivers
     hex_driver HexA (
@@ -975,6 +1128,7 @@ module mb_usb_hdmi_top(
         .direction(tank1_direction),
         .DrawX(fb_x),
         .DrawY(fb_y),
+        .active_flag(player1_active),
         .tankX(tank1xsig),
         .tankY(tank1ysig),
         .rom_q(tank_rom),
@@ -986,6 +1140,7 @@ module mb_usb_hdmi_top(
         .direction(tank2_direction),
         .DrawX(fb_x),
         .DrawY(fb_y),
+        .active_flag(player2_active),
         .tankX(tank2xsig),
         .tankY(tank2ysig),
         .rom_q(tank2_rom),
@@ -998,12 +1153,15 @@ module mb_usb_hdmi_top(
         .readen_left_flag(tank1_readleft_flag),
         .readen_right_flag(tank1_readright_flag),
         .tank1_readdata(tank0_readdata),
+        .player1_attack(player1_attack_flag),
         .keycode(keycode0_gpio[7:0]),    //Notice: only one keycode connected to ball by default
         .BallX(tank1xsig),
         .BallY(tank1ysig),
         .Ball_X_next_(tank1x_next),
         .Ball_Y_next_(tank1y_next),
-        .direction(tank1_direction)
+        .direction(tank1_direction),
+        .player1_hp(player1_hp),
+        .player1_active(player1_active)
     );
     missle TK1M(
         .Reset(reset_ah),
@@ -1015,12 +1173,14 @@ module mb_usb_hdmi_top(
         .tank_direction(tank1_direction),
         .tank_flag(tank1_in),
         .block_flag(block1_in),
+        .timer(timer),
         .keycode(keycode0_gpio[7:0]),
         .missle_center_x(missle1_center_x),
         .missle_center_y(missle1_center_y),
         .missle_center_x_next(missle1_center_x_next),
         .missle_center_y_next(missle1_center_y_next),
-        .active_missle_flag(missle1_active)
+        .active_missle_flag(missle1_active),
+        .blast_on(blast_on1)
     );
     s_bullet_example BE1(
         .vga_clk(Clk),
@@ -1048,13 +1208,16 @@ module mb_usb_hdmi_top(
         .clk_25MHz(clk_25MHz),
         .readen_left_flag(tank2_readleft_flag),
         .readen_right_flag(tank2_readright_flag),
+        .player2_attack(player2_attack_flag),
         .tank1_readdata(tank1_readdata),
         .keycode(keycode0_gpio[7:0]),
         .BallX(tank2xsig),
         .BallY(tank2ysig),
         .Ball_X_next_(tank2x_next),
         .Ball_Y_next_(tank2y_next),
-        .direction(tank2_direction)
+        .direction(tank2_direction),
+        .player2_hp(player2_hp),
+        .player2_active(player2_active)
     );
     missle2 TK2M(
         .Reset(reset_ah),
@@ -1066,12 +1229,14 @@ module mb_usb_hdmi_top(
         .tank_direction(tank2_direction),
         .tank_flag(tank2_in),
         .block_flag(block2_in),
+        .timer(timer),
         .keycode(keycode0_gpio[7:0]),
         .missle_center_x(missle2_center_x),
         .missle_center_y(missle2_center_y),
         .missle_center_x_next(missle2_center_x_next),
         .missle_center_y_next(missle2_center_y_next),
-        .active_missle_flag(missle2_active)
+        .active_missle_flag(missle2_active),
+        .blast_on(blast_on2)
     );
     block BK(
         .Clk(Clk),
@@ -1086,6 +1251,13 @@ module mb_usb_hdmi_top(
         .drawY(fb_y),
         .block_on(block2_on),
         .rom_q(block2_rom)
+    );
+    block3 BK3(
+        .Clk(Clk),
+        .drawX(fb_x),
+        .drawY(fb_y),
+        .block_on(block3_on),
+        .rom_q(block3_rom)
     );
     base BS(
         .Clk(Clk),

@@ -23,7 +23,8 @@
 module timer(
     input logic frame_clk,
     input logic Reset,
-    output logic [31:0] timer
+    output logic [31:0] timer,
+    output logic [31:0] counter_out
     );
 logic [31:0] counter;
 always_ff @(posedge frame_clk or posedge Reset) begin
@@ -35,4 +36,5 @@ always_ff @(posedge frame_clk or posedge Reset) begin
     end 
 end
 assign timer = counter / 60;
+assign counter_out = counter;
 endmodule

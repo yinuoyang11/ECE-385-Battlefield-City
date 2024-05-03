@@ -2,6 +2,7 @@ module tank3_example (
 	input logic vga_clk,
     input logic [1:0] direction,
 	input logic [9:0] DrawX, DrawY, tankX, tankY,
+    input logic active_flag,
 	output logic [1:0] rom_q,
 	output logic tank_on
 );
@@ -18,7 +19,7 @@ logic negedge_vga_clk;
 // address into the rom = (x*xDim)/640 + ((y*yDim)/480) * xDim
 // this will stretch out the sprite across the entire screen
 always_comb begin
-    if ((DrawX >= (tankX - 12)) && (DrawX < (tankX + 12)) && (DrawY >= (tankY - 12)) && (DrawY < (tankY + 12))) begin
+    if (active_flag && (DrawX >= (tankX - 12)) && (DrawX < (tankX + 12)) && (DrawY >= (tankY - 12)) && (DrawY < (tankY + 12))) begin
         tank_on_ = 1'b1;
         case (direction)
             2'b00:  rom_address = (23 - (DrawY - tankY + 12)) + (DrawX - tankX + 12) * 24;

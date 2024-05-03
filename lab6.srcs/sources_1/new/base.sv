@@ -39,18 +39,21 @@ integer base_begin_y = 467;
 logic base_on_;
 logic rom_q_;
 logic [3:0] base_hp_reg;
+logic [31:0] counter;
 always_ff @(posedge frame_clk or posedge Reset) begin
     if(Reset) begin
-         base_hp_reg <= 3'b110;
+         base_hp_reg <= 4'b1111;
          game_over_flag <= 0;
+         counter <= 0;
     end
-    else begin
-        if (attack_flag) begin
+    else if (game_over_flag==0)  begin
+        counter <= counter + 1;
+        if (attack_flag && counter%3==0) begin
             base_hp_reg <= base_hp_reg - 1;
         end
         else begin
         end
-        if (base_hp_reg==3'b000) begin
+        if (base_hp_reg==4'b0000) begin
             game_over_flag <= 1;
         end
         else begin

@@ -99,6 +99,18 @@ add_files E:/xilinx/final_project/lab6.srcs/sources_1/brick_long/brick_long.COE
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/tank3/tank3.COE
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t.COE
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/i/i.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/1/1.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/two/two.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/three/three.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/four/four.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/five/five.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/six/six.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/seven/seven.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/eight/eight.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/nine/nine.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/sc/sc.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/zero.COE
+add_files e:/xilinx/final_project/lab6.srcs/sources_1/over/over.COE
 read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/new/block.sv
   F:/新建文件夹/hex_driver.sv
@@ -121,6 +133,15 @@ read_verilog -library xil_defaultlib -sv {
   E:/xilinx/final_project/lab6.srcs/sources_1/brick_t/brick_t_example.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/new/base.sv
   E:/xilinx/final_project/lab6.srcs/sources_1/i/i_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/music_font.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/music_controller.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/imports/music.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/1/1_palette.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/1/1_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/block3.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/new/brick2_t_example.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/over/over_palette.sv
+  E:/xilinx/final_project/lab6.srcs/sources_1/over/over_example.sv
 }
 read_verilog -library xil_defaultlib E:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/hdl/mb_block_wrapper.v
 add_files E:/xilinx/final_project/lab6.srcs/sources_1/bd/mb_block/mb_block.bd
@@ -165,6 +186,9 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/mb_block_ooc.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/bd/mb_block/ip/mb_block_microblaze_0_0/data/mb_bootloop_le.elf]
 
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/one_rom/one_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/one_rom/one_rom_ooc.xdc]
+
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/clk_wiz_0/clk_wiz_0.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0_board.xdc]
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/clk_wiz_0/clk_wiz_0.xdc]
@@ -186,6 +210,39 @@ set_property used_in_implementation false [get_files -all e:/xilinx/final_projec
 
 read_ip -quiet E:/xilinx/final_project/lab6.srcs/sources_1/ip/i_rom/i_rom.xci
 set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/i_rom/i_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/two_rom/two_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/two_rom/two_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/three_rom/three_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/three_rom/three_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/four_rom/four_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/four_rom/four_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/five_rom/five_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/five_rom/five_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/six_rom/six_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/six_rom/six_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/seven_rom/seven_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/seven_rom/seven_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/eight_rom/eight_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/eight_rom/eight_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/nine_rom/nine_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/nine_rom/nine_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/score_rom/score_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/score_rom/score_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/zero_rom/zero_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/zero_rom/zero_rom_ooc.xdc]
+
+read_ip -quiet e:/xilinx/final_project/lab6.srcs/sources_1/ip/over_rom/over_rom.xci
+set_property used_in_implementation false [get_files -all e:/xilinx/final_project/lab6.gen/sources_1/ip/over_rom/over_rom_ooc.xdc]
 
 OPTRACE "Adding files" END { }
 # Mark all dcp files as not used in implementation to prevent them from being
