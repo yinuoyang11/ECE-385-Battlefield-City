@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="mb_usb_hdmi_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="ipif_pkg" />
+            <top_module name="lib_pkg" />
+            <top_module name="lmb_bram_if_funcs" />
+            <top_module name="mb_usb_hdmi_tb" />
+            <top_module name="mdm_funcs" />
+            <top_module name="tc_types" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="253.538333 us"></ZoomStartTime>
+      <ZoomEndTime time="287.818334 us"></ZoomEndTime>
+      <Cursor1Time time="289.255000 us"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="268"></NameColumnWidth>
+      <ValueColumnWidth column_width="90"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject fp_name="/mb_usb_hdmi_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/FB/addra" type="array">
+      <obj_property name="ElementShortName">addra[17:0]</obj_property>
+      <obj_property name="ObjectShortName">addra[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/FB/addrb" type="array">
+      <obj_property name="ElementShortName">addrb[17:0]</obj_property>
+      <obj_property name="ObjectShortName">addrb[17:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/FB/dinb" type="array">
+      <obj_property name="ElementShortName">dinb[7:0]</obj_property>
+      <obj_property name="ObjectShortName">dinb[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/FB/douta" type="array">
+      <obj_property name="ElementShortName">douta[7:0]</obj_property>
+      <obj_property name="ObjectShortName">douta[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/block_on" type="logic">
+      <obj_property name="ElementShortName">block_on</obj_property>
+      <obj_property name="ObjectShortName">block_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/block2_on" type="logic">
+      <obj_property name="ElementShortName">block2_on</obj_property>
+      <obj_property name="ObjectShortName">block2_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/block3_on" type="logic">
+      <obj_property name="ElementShortName">block3_on</obj_property>
+      <obj_property name="ObjectShortName">block3_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank_on" type="logic">
+      <obj_property name="ElementShortName">tank_on</obj_property>
+      <obj_property name="ObjectShortName">tank_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/tank2_on" type="logic">
+      <obj_property name="ElementShortName">tank2_on</obj_property>
+      <obj_property name="ObjectShortName">tank2_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/enemy_tank_on" type="logic">
+      <obj_property name="ElementShortName">enemy_tank_on</obj_property>
+      <obj_property name="ObjectShortName">enemy_tank_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/enemy_tank2_on" type="logic">
+      <obj_property name="ElementShortName">enemy_tank2_on</obj_property>
+      <obj_property name="ObjectShortName">enemy_tank2_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/missle1_on" type="logic">
+      <obj_property name="ElementShortName">missle1_on</obj_property>
+      <obj_property name="ObjectShortName">missle1_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/missle2_on" type="logic">
+      <obj_property name="ElementShortName">missle2_on</obj_property>
+      <obj_property name="ObjectShortName">missle2_on</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_x" type="array">
+      <obj_property name="ElementShortName">fb_x[9:0]</obj_property>
+      <obj_property name="ObjectShortName">fb_x[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_y" type="array">
+      <obj_property name="ElementShortName">fb_y[9:0]</obj_property>
+      <obj_property name="ObjectShortName">fb_y[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/drawX" type="array">
+      <obj_property name="ElementShortName">drawX[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawX[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/drawY" type="array">
+      <obj_property name="ElementShortName">drawY[9:0]</obj_property>
+      <obj_property name="ObjectShortName">drawY[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/red" type="array">
+      <obj_property name="ElementShortName">red[3:0]</obj_property>
+      <obj_property name="ObjectShortName">red[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/green" type="array">
+      <obj_property name="ElementShortName">green[3:0]</obj_property>
+      <obj_property name="ObjectShortName">green[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/blue" type="array">
+      <obj_property name="ElementShortName">blue[3:0]</obj_property>
+      <obj_property name="ObjectShortName">blue[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_red" type="array">
+      <obj_property name="ElementShortName">fb_red[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fb_red[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_green" type="array">
+      <obj_property name="ElementShortName">fb_green[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fb_green[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mb_usb_hdmi_tb/MB/fb_blue" type="array">
+      <obj_property name="ElementShortName">fb_blue[3:0]</obj_property>
+      <obj_property name="ObjectShortName">fb_blue[3:0]</obj_property>
+   </wvobject>
+</wave_config>
