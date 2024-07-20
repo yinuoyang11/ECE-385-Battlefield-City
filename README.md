@@ -4,9 +4,9 @@
 
 ## Authors
 - #### Author1:
-  **Yinuo Yang** netid: yinuoy4
+  **Yinuo Yang | netid: yinuoy4**
 - #### Author2:
-- **Yunyi Lin** netid: yunyil3
+  **Yunyi Lin | netid: yunyil3**
 ## Game Features
 - #### Two Player Tanks:
   **Each player controls a tank and can move in four directions and shoot bullets. Each tank can fire up to three bullets simultaneously.**
