@@ -2,6 +2,11 @@
 ## Overview
   **Battlefield City is a two-player game implemented on an FPGA Urbana board using System Verilog and C. The game features player-controlled tanks and numerous enemy tanks that spawn periodically from the top of the map. The map includes destructible walls, and the entire game scene is rendered using a frame buffer that stores the properties of objects at each location (player tanks, enemy tanks, walls, bullets, base, etc.).**
 
+## Authors
+- #### Author1:
+  **Yinuo Yang** netid: yinuoy4
+- #### Author2:
+- **Yunyi Lin** netid: yunyil3
 ## Game Features
 - #### Two Player Tanks:
   **Each player controls a tank and can move in four directions and shoot bullets. Each tank can fire up to three bullets simultaneously.**
